@@ -1,1 +1,18 @@
-[{"id": "row-1", "children": [{"id": "component-1", "title": "服务端端口列表", "toolTip": "", "varName": "服务端端口列表", "valueType": "string", "value": "", "col": 24, "type": "input", "isRequired": "true"}]}]
+[
+    {
+        "id": "row-1",
+        "children": [
+            {
+                "id": "component-1",
+                "title": "服务端端口列表",
+                "toolTip": "",
+                "varName": "服务端端口列表",
+                "valueType": "string",
+                "value": "",
+                "col": 24,
+                "type": "input",
+                "isRequired": "true"
+            }
+        ]
+    }
+]
