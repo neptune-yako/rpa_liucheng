@@ -1,1 +1,730 @@
-{"name": "写入excel", "_id": "xYMUXGeM", "viewType": "2", "desc": null, "blocks": [{"_id": "tUuWC3Of", "name": "新建Excel工作簿", "moduleid": "b84e3e7e-8555-11eb-b05e-d86b0360bae7", "codeName": "Excel.newExcel", "template": "新建一个空的Excel工作簿", "desc": "", "is_enable": true, "inputs": [{"_id": "nKswDwjS", "name": "method", "valueType": "python", "value": 0, "display": "驱动方式", "belong_paraID": null, "valueMapping": [{"name": "Mircosoft Office", "value": 0}, {"name": "WPS", "value": 2}, {"name": "openpyxl", "value": 1}], "required": 1}, {"_id": "yUn0ypZK", "name": "savePath", "valueType": "python", "value": "\"\"", "display": "保存路径", "belong_paraID": null, "valueMapping": [], "required": 1}, {"_id": "Yw27NHWr", "name": "delayBefore", "valueType": "python", "value": "0", "display": "执行前延时", "belong_paraID": null, "valueMapping": [], "required": 0}, {"_id": "8NXt0EeB", "name": "delayAfter", "valueType": "python", "value": 0, "display": "执行后延时", "belong_paraID": null, "valueMapping": [], "required": 0}, {"_id": "zo4vLstL", "name": "continue_On_Failure", "valueType": "python", "value": true, "display": "执行失败是否继续", "belong_paraID": null, "valueMapping": [{"name": "是", "value": true}, {"name": "否", "value": false}], "required": 0}], "outputs": [{"_id": "3sPkCA1P", "name": "outPut1", "valueType": "python", "value": "Excel工作簿", "display": "工作簿对象", "belong_paraID": null, "valueMapping": [], "required": 1}], "customAttr": {"graphData": ""}, "unfold": true, "self_enable": true, "error_info": [], "version": null, "is_params_error": false}, {"_id": "oKhtBf0f", "name": "打开工作表", "moduleid": "b81e9086-8555-11eb-ac19-d86b0360bae7", "codeName": "Excel.openSheet", "template": "打开工作簿{{wb}}中名称为{{shtName}}的工作表", "desc": "", "is_enable": true, "inputs": [{"_id": "pisEMq0g", "name": "wb", "valueType": "python", "value": "Excel工作簿", "display": "工作簿对象", "belong_paraID": null, "valueMapping": [], "required": 1}, {"_id": "cz1ZZMF9", "name": "shtName", "valueType": "string", "value": "Sheet1", "display": "工作表名称", "belong_paraID": null, "valueMapping": [], "required": 1}, {"_id": "J200ypmu", "name": "delayBefore", "valueType": "python", "value": 0, "display": "执行前延时", "belong_paraID": null, "valueMapping": [], "required": 0}, {"_id": "QReMFPsi", "name": "delayAfter", "valueType": "python", "value": 0, "display": "执行后延时", "belong_paraID": null, "valueMapping": [], "required": 0}, {"_id": "GnEk9Lsc", "name": "continue_On_Failure", "valueType": "python", "value": true, "display": "执行失败是否继续", "belong_paraID": null, "valueMapping": [{"name": "是", "value": true}, {"name": "否", "value": false}], "required": 0}], "outputs": [{"_id": "ltA31DoQ", "name": "outPut", "valueType": "python", "value": "已打开工作表", "display": "输出到", "belong_paraID": null, "valueMapping": [], "required": 1}], "customAttr": {"graphData": ""}, "unfold": true, "self_enable": true, "error_info": [], "version": null, "is_params_error": false}, {"_id": "fuKUIzV2", "name": "变量赋值", "moduleid": "b96c59fa-8555-11eb-8f6c-d86b0360bae7", "codeName": "Control.vardefine", "template": "变量名称{{newVar}} 赋值为 {{init}}", "desc": "", "is_enable": true, "inputs": [{"_id": "VLKxzpUB", "name": "newVar", "valueType": "python", "value": "表头", "display": "变量名称", "belong_paraID": null, "valueMapping": [], "required": 1}, {"_id": "p4JywE0L", "name": "init", "valueType": "python", "value": "['市系统id','对象obj_id','事项名称','转录状态','错误原因','操作对象','操作类型','组织机构','创建时间','更新时间']", "display": "变量值", "belong_paraID": null, "valueMapping": [], "required": 1}], "outputs": [], "customAttr": {"graphData": ""}, "unfold": true, "self_enable": true, "error_info": [], "version": null, "is_params_error": false}, {"_id": "Oi2SFhaQ", "name": "写入行", "moduleid": "b7eee506-8555-11eb-ab5c-d86b0360bae7", "codeName": "Excel.writeRowValue", "template": "在工作表{{sht}}的单元格{{cellName}}后(包含指定单元格)写入一行数据{{values}}（立即保存：{{isSave}}）", "desc": "", "is_enable": true, "inputs": [{"_id": "SLAUtNYS", "name": "sht", "valueType": "python", "value": "已打开工作表", "display": "工作表对象", "belong_paraID": null, "valueMapping": [], "required": 1}, {"_id": "P5AO1tcH", "name": "cellName", "valueType": "string", "value": "A1", "display": "单元格名称", "belong_paraID": null, "valueMapping": [], "required": 1}, {"_id": "yEEVyvdB", "name": "values", "valueType": "python", "value": "表头", "display": "数据值数组", "belong_paraID": null, "valueMapping": [], "required": 1}, {"_id": "ykNyWpsD", "name": "isSave", "valueType": "python", "value": false, "display": "是否立即保存", "belong_paraID": null, "valueMapping": [{"name": "是", "value": true}, {"name": "否", "value": false}], "required": 1}, {"_id": "QATYmdH7", "name": "wb", "valueType": "python", "value": "Excel工作簿", "display": "工作簿对象", "belong_paraID": null, "valueMapping": [], "required": 1}, {"_id": "qar0bh3H", "name": "delayBefore", "valueType": "python", "value": 0, "display": "执行前延时", "belong_paraID": null, "valueMapping": [], "required": 0}, {"_id": "VHitYLjB", "name": "delayAfter", "valueType": "python", "value": 0, "display": "执行后延时", "belong_paraID": null, "valueMapping": [], "required": 0}, {"_id": "t6hJJtI4", "name": "continue_On_Failure", "valueType": "python", "value": true, "display": "执行失败是否继续", "belong_paraID": null, "valueMapping": [{"name": "是", "value": true}, {"name": "否", "value": false}], "required": 0}], "outputs": [{"_id": "K1kvEisS", "name": "outPut", "valueType": "python", "value": "是否写入成功", "display": "输出到", "belong_paraID": null, "valueMapping": [], "required": 1}], "customAttr": {"graphData": ""}, "unfold": true, "self_enable": true, "error_info": [], "version": null, "is_params_error": false}, {"_id": "n3XvfW54", "name": "写入区域", "moduleid": "b94895d4-8555-11eb-bc78-d86b0360bae7", "codeName": "Excel.writeRangeValue", "template": "在工作表{{sht}}的单元格{{cellName}}开始写入数据{{values}}（立即保存：{{isSave}}）", "desc": "", "is_enable": true, "inputs": [{"_id": "hIacrbKs", "name": "sht", "valueType": "python", "value": "已打开工作表", "display": "工作表对象", "belong_paraID": null, "valueMapping": [], "required": 1}, {"_id": "v1kKxbEg", "name": "cellName", "valueType": "string", "value": "A2", "display": "目标区域第一个单元格", "belong_paraID": null, "valueMapping": [], "required": 1}, {"_id": "Sxg6UTH6", "name": "values", "valueType": "python", "value": "二维数组", "display": "数据值数组", "belong_paraID": null, "valueMapping": [], "required": 1}, {"_id": "MYaKeP1V", "name": "isSave", "valueType": "python", "value": false, "display": "是否立即保存", "belong_paraID": null, "valueMapping": [{"name": "是", "value": true}, {"name": "否", "value": false}], "required": 1}, {"_id": "mOu8zmQe", "name": "wb", "valueType": "python", "value": "Excel工作簿", "display": "工作簿对象", "belong_paraID": null, "valueMapping": [], "required": 1}, {"_id": "CjGKowbN", "name": "delayBefore", "valueType": "python", "value": 0, "display": "执行前延时", "belong_paraID": null, "valueMapping": [], "required": 0}, {"_id": "UBwpbY9q", "name": "delayAfter", "valueType": "python", "value": 0, "display": "执行后延时", "belong_paraID": null, "valueMapping": [], "required": 0}, {"_id": "s6qZxKoY", "name": "continue_On_Failure", "valueType": "python", "value": true, "display": "执行失败是否继续", "belong_paraID": null, "valueMapping": [{"name": "是", "value": true}, {"name": "否", "value": false}], "required": 0}, {"_id": "DHh43i7V", "name": "maxRow", "valueType": "python", "value": "", "display": "最大行数", "belong_paraID": null, "valueMapping": [], "required": 0}, {"_id": "e4GFWmRa", "name": "maxCol", "valueType": "python", "value": "", "display": "最大列数", "belong_paraID": null, "valueMapping": [], "required": 0}], "outputs": [{"_id": "KbJPsr2S", "name": "outPut", "valueType": "python", "value": "是否写入成功", "display": "输出到", "belong_paraID": null, "valueMapping": [], "required": 1}], "customAttr": {"graphData": ""}, "unfold": true, "self_enable": true, "error_info": [], "version": null, "is_params_error": false}, {"_id": "SnZsv7OZ", "name": "另存Excel工作簿", "moduleid": "b857c92e-8555-11eb-a1cc-d86b0360bae7", "codeName": "Excel.saveToExcel", "template": "另存Excel工作簿{{wb}}到路径{{filePath}}", "desc": "", "is_enable": true, "inputs": [{"_id": "x1flg36f", "name": "wb", "valueType": "python", "value": "Excel工作簿", "display": "工作簿对象", "belong_paraID": null, "valueMapping": [], "required": 1}, {"_id": "2CFB3hhL", "name": "filePath", "valueType": "string", "value": ["r'D:\\二次录入并发运行\\二次录入.xlsx'"], "display": "文件路径", "belong_paraID": null, "valueMapping": [], "required": 1}, {"_id": "S2UXCZhn", "name": "delayBefore", "valueType": "python", "value": 0, "display": "执行前延时", "belong_paraID": null, "valueMapping": [], "required": 0}, {"_id": "VbOlKXb4", "name": "delayAfter", "valueType": "python", "value": 0, "display": "执行后延时", "belong_paraID": null, "valueMapping": [], "required": 0}, {"_id": "VpqHeAG5", "name": "continue_On_Failure", "valueType": "python", "value": true, "display": "执行失败是否继续", "belong_paraID": null, "valueMapping": [{"name": "是", "value": true}, {"name": "否", "value": false}], "required": 0}], "outputs": [{"_id": "ORBnZEBK", "name": "outPut", "valueType": "python", "value": "是否保存成功", "display": "输出到", "belong_paraID": null, "valueMapping": [], "required": 1}], "customAttr": {"graphData": ""}, "unfold": true, "self_enable": true, "error_info": [], "version": null, "is_params_error": false}, {"_id": "JXRGzpBz", "name": "关闭Excel工作簿", "moduleid": "b93a4750-8555-11eb-95a3-d86b0360bae7", "codeName": "Excel.closeExcel", "template": "关闭Excel工作簿{{wb}}", "desc": "", "is_enable": true, "inputs": [{"_id": "MAkpsNJg", "name": "wb", "valueType": "python", "value": "Excel工作簿", "display": "工作簿对象", "belong_paraID": null, "valueMapping": [], "required": 1}, {"_id": "NFZbOrOi", "name": "isSave", "valueType": "python", "value": false, "display": "是否立即保存", "belong_paraID": null, "valueMapping": [{"name": "是", "value": true}, {"name": "否", "value": false}], "required": 1}, {"_id": "dGPmqBDP", "name": "delayBefore", "valueType": "python", "value": 0, "display": "执行前延时", "belong_paraID": null, "valueMapping": [], "required": 0}, {"_id": "BYYh7wN5", "name": "delayAfter", "valueType": "python", "value": 0, "display": "执行后延时", "belong_paraID": null, "valueMapping": [], "required": 0}, {"_id": "v2x3jlnD", "name": "continue_On_Failure", "valueType": "python", "value": true, "display": "执行失败是否继续", "belong_paraID": null, "valueMapping": [{"name": "是", "value": true}, {"name": "否", "value": false}], "required": 0}], "outputs": [{"_id": "kbViZ7rh", "name": "outPut", "valueType": "python", "value": "是否关闭成功", "display": "输出到", "belong_paraID": null, "valueMapping": [], "required": 1}], "customAttr": {"graphData": ""}, "unfold": true, "self_enable": true, "error_info": [], "version": null, "is_params_error": false}], "unusedBlocks": [], "parameters": [{"_id": "t0ubTrIl", "parameterName": "loglevel", "defaultValue": "DEBUG", "valueType": "string", "type": 3, "desc": "日志等级"}, {"_id": "vYgwNfCU", "parameterName": "二维数组", "defaultValue": "None", "valueType": "python", "type": 0, "desc": ""}], "globalVarList": []}
+{
+    "name": "写入excel",
+    "_id": "xYMUXGeM",
+    "viewType": "2",
+    "desc": null,
+    "blocks": [
+        {
+            "_id": "tUuWC3Of",
+            "name": "新建Excel工作簿",
+            "moduleid": "b84e3e7e-8555-11eb-b05e-d86b0360bae7",
+            "codeName": "Excel.newExcel",
+            "template": "新建一个空的Excel工作簿",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "nKswDwjS",
+                    "name": "method",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "驱动方式",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "Mircosoft Office",
+                            "value": 0
+                        },
+                        {
+                            "name": "WPS",
+                            "value": 2
+                        },
+                        {
+                            "name": "openpyxl",
+                            "value": 1
+                        }
+                    ],
+                    "required": 1
+                },
+                {
+                    "_id": "yUn0ypZK",
+                    "name": "savePath",
+                    "valueType": "python",
+                    "value": "\"\"",
+                    "display": "保存路径",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                },
+                {
+                    "_id": "Yw27NHWr",
+                    "name": "delayBefore",
+                    "valueType": "python",
+                    "value": "0",
+                    "display": "执行前延时",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 0
+                },
+                {
+                    "_id": "8NXt0EeB",
+                    "name": "delayAfter",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行后延时",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 0
+                },
+                {
+                    "_id": "zo4vLstL",
+                    "name": "continue_On_Failure",
+                    "valueType": "python",
+                    "value": true,
+                    "display": "执行失败是否继续",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ],
+                    "required": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "_id": "3sPkCA1P",
+                    "name": "outPut1",
+                    "valueType": "python",
+                    "value": "Excel工作簿",
+                    "display": "工作簿对象",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                }
+            ],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true,
+            "error_info": [],
+            "version": null,
+            "is_params_error": false
+        },
+        {
+            "_id": "oKhtBf0f",
+            "name": "打开工作表",
+            "moduleid": "b81e9086-8555-11eb-ac19-d86b0360bae7",
+            "codeName": "Excel.openSheet",
+            "template": "打开工作簿{{wb}}中名称为{{shtName}}的工作表",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "pisEMq0g",
+                    "name": "wb",
+                    "valueType": "python",
+                    "value": "Excel工作簿",
+                    "display": "工作簿对象",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                },
+                {
+                    "_id": "cz1ZZMF9",
+                    "name": "shtName",
+                    "valueType": "string",
+                    "value": "Sheet1",
+                    "display": "工作表名称",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                },
+                {
+                    "_id": "J200ypmu",
+                    "name": "delayBefore",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行前延时",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 0
+                },
+                {
+                    "_id": "QReMFPsi",
+                    "name": "delayAfter",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行后延时",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 0
+                },
+                {
+                    "_id": "GnEk9Lsc",
+                    "name": "continue_On_Failure",
+                    "valueType": "python",
+                    "value": true,
+                    "display": "执行失败是否继续",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ],
+                    "required": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "_id": "ltA31DoQ",
+                    "name": "outPut",
+                    "valueType": "python",
+                    "value": "已打开工作表",
+                    "display": "输出到",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                }
+            ],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true,
+            "error_info": [],
+            "version": null,
+            "is_params_error": false
+        },
+        {
+            "_id": "fuKUIzV2",
+            "name": "变量赋值",
+            "moduleid": "b96c59fa-8555-11eb-8f6c-d86b0360bae7",
+            "codeName": "Control.vardefine",
+            "template": "变量名称{{newVar}} 赋值为 {{init}}",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "VLKxzpUB",
+                    "name": "newVar",
+                    "valueType": "python",
+                    "value": "表头",
+                    "display": "变量名称",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                },
+                {
+                    "_id": "p4JywE0L",
+                    "name": "init",
+                    "valueType": "python",
+                    "value": "['市系统id','对象obj_id','事项名称','转录状态','错误原因','操作对象','操作类型','组织机构','创建时间','更新时间']",
+                    "display": "变量值",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true,
+            "error_info": [],
+            "version": null,
+            "is_params_error": false
+        },
+        {
+            "_id": "Oi2SFhaQ",
+            "name": "写入行",
+            "moduleid": "b7eee506-8555-11eb-ab5c-d86b0360bae7",
+            "codeName": "Excel.writeRowValue",
+            "template": "在工作表{{sht}}的单元格{{cellName}}后(包含指定单元格)写入一行数据{{values}}（立即保存：{{isSave}}）",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "SLAUtNYS",
+                    "name": "sht",
+                    "valueType": "python",
+                    "value": "已打开工作表",
+                    "display": "工作表对象",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                },
+                {
+                    "_id": "P5AO1tcH",
+                    "name": "cellName",
+                    "valueType": "string",
+                    "value": "A1",
+                    "display": "单元格名称",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                },
+                {
+                    "_id": "yEEVyvdB",
+                    "name": "values",
+                    "valueType": "python",
+                    "value": "表头",
+                    "display": "数据值数组",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                },
+                {
+                    "_id": "ykNyWpsD",
+                    "name": "isSave",
+                    "valueType": "python",
+                    "value": false,
+                    "display": "是否立即保存",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ],
+                    "required": 1
+                },
+                {
+                    "_id": "QATYmdH7",
+                    "name": "wb",
+                    "valueType": "python",
+                    "value": "Excel工作簿",
+                    "display": "工作簿对象",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                },
+                {
+                    "_id": "qar0bh3H",
+                    "name": "delayBefore",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行前延时",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 0
+                },
+                {
+                    "_id": "VHitYLjB",
+                    "name": "delayAfter",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行后延时",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 0
+                },
+                {
+                    "_id": "t6hJJtI4",
+                    "name": "continue_On_Failure",
+                    "valueType": "python",
+                    "value": true,
+                    "display": "执行失败是否继续",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ],
+                    "required": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "_id": "K1kvEisS",
+                    "name": "outPut",
+                    "valueType": "python",
+                    "value": "是否写入成功",
+                    "display": "输出到",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                }
+            ],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true,
+            "error_info": [],
+            "version": null,
+            "is_params_error": false
+        },
+        {
+            "_id": "n3XvfW54",
+            "name": "写入区域",
+            "moduleid": "b94895d4-8555-11eb-bc78-d86b0360bae7",
+            "codeName": "Excel.writeRangeValue",
+            "template": "在工作表{{sht}}的单元格{{cellName}}开始写入数据{{values}}（立即保存：{{isSave}}）",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "hIacrbKs",
+                    "name": "sht",
+                    "valueType": "python",
+                    "value": "已打开工作表",
+                    "display": "工作表对象",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                },
+                {
+                    "_id": "v1kKxbEg",
+                    "name": "cellName",
+                    "valueType": "string",
+                    "value": "A2",
+                    "display": "目标区域第一个单元格",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                },
+                {
+                    "_id": "Sxg6UTH6",
+                    "name": "values",
+                    "valueType": "python",
+                    "value": "二维数组",
+                    "display": "数据值数组",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                },
+                {
+                    "_id": "MYaKeP1V",
+                    "name": "isSave",
+                    "valueType": "python",
+                    "value": false,
+                    "display": "是否立即保存",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ],
+                    "required": 1
+                },
+                {
+                    "_id": "mOu8zmQe",
+                    "name": "wb",
+                    "valueType": "python",
+                    "value": "Excel工作簿",
+                    "display": "工作簿对象",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                },
+                {
+                    "_id": "CjGKowbN",
+                    "name": "delayBefore",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行前延时",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 0
+                },
+                {
+                    "_id": "UBwpbY9q",
+                    "name": "delayAfter",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行后延时",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 0
+                },
+                {
+                    "_id": "s6qZxKoY",
+                    "name": "continue_On_Failure",
+                    "valueType": "python",
+                    "value": true,
+                    "display": "执行失败是否继续",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ],
+                    "required": 0
+                },
+                {
+                    "_id": "DHh43i7V",
+                    "name": "maxRow",
+                    "valueType": "python",
+                    "value": "",
+                    "display": "最大行数",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 0
+                },
+                {
+                    "_id": "e4GFWmRa",
+                    "name": "maxCol",
+                    "valueType": "python",
+                    "value": "",
+                    "display": "最大列数",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "_id": "KbJPsr2S",
+                    "name": "outPut",
+                    "valueType": "python",
+                    "value": "是否写入成功",
+                    "display": "输出到",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                }
+            ],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true,
+            "error_info": [],
+            "version": null,
+            "is_params_error": false
+        },
+        {
+            "_id": "SnZsv7OZ",
+            "name": "另存Excel工作簿",
+            "moduleid": "b857c92e-8555-11eb-a1cc-d86b0360bae7",
+            "codeName": "Excel.saveToExcel",
+            "template": "另存Excel工作簿{{wb}}到路径{{filePath}}",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "x1flg36f",
+                    "name": "wb",
+                    "valueType": "python",
+                    "value": "Excel工作簿",
+                    "display": "工作簿对象",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                },
+                {
+                    "_id": "2CFB3hhL",
+                    "name": "filePath",
+                    "valueType": "string",
+                    "value": [
+                        "r'D:\\二次录入并发运行\\二次录入.xlsx'"
+                    ],
+                    "display": "文件路径",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                },
+                {
+                    "_id": "S2UXCZhn",
+                    "name": "delayBefore",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行前延时",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 0
+                },
+                {
+                    "_id": "VbOlKXb4",
+                    "name": "delayAfter",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行后延时",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 0
+                },
+                {
+                    "_id": "VpqHeAG5",
+                    "name": "continue_On_Failure",
+                    "valueType": "python",
+                    "value": true,
+                    "display": "执行失败是否继续",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ],
+                    "required": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "_id": "ORBnZEBK",
+                    "name": "outPut",
+                    "valueType": "python",
+                    "value": "是否保存成功",
+                    "display": "输出到",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                }
+            ],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true,
+            "error_info": [],
+            "version": null,
+            "is_params_error": false
+        },
+        {
+            "_id": "JXRGzpBz",
+            "name": "关闭Excel工作簿",
+            "moduleid": "b93a4750-8555-11eb-95a3-d86b0360bae7",
+            "codeName": "Excel.closeExcel",
+            "template": "关闭Excel工作簿{{wb}}",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "MAkpsNJg",
+                    "name": "wb",
+                    "valueType": "python",
+                    "value": "Excel工作簿",
+                    "display": "工作簿对象",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                },
+                {
+                    "_id": "NFZbOrOi",
+                    "name": "isSave",
+                    "valueType": "python",
+                    "value": false,
+                    "display": "是否立即保存",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ],
+                    "required": 1
+                },
+                {
+                    "_id": "dGPmqBDP",
+                    "name": "delayBefore",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行前延时",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 0
+                },
+                {
+                    "_id": "BYYh7wN5",
+                    "name": "delayAfter",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行后延时",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 0
+                },
+                {
+                    "_id": "v2x3jlnD",
+                    "name": "continue_On_Failure",
+                    "valueType": "python",
+                    "value": true,
+                    "display": "执行失败是否继续",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ],
+                    "required": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "_id": "kbViZ7rh",
+                    "name": "outPut",
+                    "valueType": "python",
+                    "value": "是否关闭成功",
+                    "display": "输出到",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                }
+            ],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true,
+            "error_info": [],
+            "version": null,
+            "is_params_error": false
+        }
+    ],
+    "unusedBlocks": [],
+    "parameters": [
+        {
+            "_id": "t0ubTrIl",
+            "parameterName": "loglevel",
+            "defaultValue": "DEBUG",
+            "valueType": "string",
+            "type": 3,
+            "desc": "日志等级"
+        },
+        {
+            "_id": "vYgwNfCU",
+            "parameterName": "二维数组",
+            "defaultValue": "None",
+            "valueType": "python",
+            "type": 0,
+            "desc": ""
+        }
+    ],
+    "globalVarList": []
+}
