@@ -1,0 +1,3596 @@
+{
+    "name": "省系统扫码登客户端",
+    "_id": "f30c6754-00d1-11f1-98e6-aae8ee395a0c",
+    "viewType": "1",
+    "desc": null,
+    "blocks": [
+        {
+            "_id": "f30da3a6-00d1-11f1-949d-aae8ee395a0c",
+            "name": "异常捕获",
+            "moduleid": "b8091b28-8555-11eb-a7e7-d86b0360bae7",
+            "codeName": "Control.try",
+            "template": "异常捕获",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30d4bee-00d1-11f1-9e18-aae8ee395a0c",
+                    "name": "Exception",
+                    "valueType": "string",
+                    "value": "error",
+                    "display": "异常",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30c431d-00d1-11f1-929e-aae8ee395a0c",
+                    "name": "isShowFinally",
+                    "valueType": "python",
+                    "value": true,
+                    "display": "是否展示结束",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ]
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30cff63-00d1-11f1-943d-aae8ee395a0c",
+            "name": "消费任务数据",
+            "moduleid": "ba10dad2-8555-11eb-954a-d86b0360bae7",
+            "codeName": "TaskDataItem.consumeData",
+            "template": "消费名称为：{{taskDataName}}的任务数据",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30cb36a-00d1-11f1-b62b-aae8ee395a0c",
+                    "name": "taskDataName",
+                    "valueType": "string",
+                    "value": "市政数登录系统",
+                    "display": "任务数据名称",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30cff6f-00d1-11f1-ab2a-aae8ee395a0c",
+                    "name": "cGroup",
+                    "valueType": "string",
+                    "value": "",
+                    "display": "分组名称",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d4bed-00d1-11f1-b47b-aae8ee395a0c",
+                    "name": "delayBefore",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行前延时",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30c6757-00d1-11f1-bfdc-aae8ee395a0c",
+                    "name": "delayAfter",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行后延时",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d722a-00d1-11f1-a512-aae8ee395a0c",
+                    "name": "timeout",
+                    "valueType": "python",
+                    "value": 30,
+                    "display": "超时时间",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30c8d4b-00d1-11f1-85c1-aae8ee395a0c",
+                    "name": "continue_on_400",
+                    "valueType": "python",
+                    "value": false,
+                    "display": "通信出错是否继续",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "_id": "f30d7248-00d1-11f1-a1ed-aae8ee395a0c",
+                    "name": "outPut",
+                    "valueType": "python",
+                    "value": "任务数据字典",
+                    "display": "输出到",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d7227-00d1-11f1-8f51-aae8ee395a0c",
+            "name": "打印日志",
+            "moduleid": "b9ce197a-8555-11eb-9cea-d86b0360bae7",
+            "codeName": "Control.print",
+            "template": "打印{{template_string}}",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30cff5b-00d1-11f1-8ae6-aae8ee395a0c",
+                    "name": "template_string",
+                    "valueType": "python",
+                    "value": "\"任务数据字典:{}\"",
+                    "display": "打印内容",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30c8d4c-00d1-11f1-80cc-aae8ee395a0c",
+                    "name": "logLevel",
+                    "valueType": "python",
+                    "value": "info",
+                    "display": "日志等级",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "INFO",
+                            "value": "info"
+                        },
+                        {
+                            "name": "WARNING",
+                            "value": "warning"
+                        },
+                        {
+                            "name": "ERROR",
+                            "value": "error"
+                        },
+                        {
+                            "name": "DEBUG",
+                            "value": "debug"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30d2595-00d1-11f1-8032-aae8ee395a0c",
+                    "name": "replaceType",
+                    "valueType": "python",
+                    "value": "format",
+                    "display": "替换类型",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "format",
+                            "value": "format"
+                        },
+                        {
+                            "name": "format_map",
+                            "value": "format_map"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30d257a-00d1-11f1-940b-aae8ee395a0c",
+                    "name": "params",
+                    "valueType": "python",
+                    "value": "任务数据字典",
+                    "display": "传参",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d258f-00d1-11f1-acd5-aae8ee395a0c",
+            "name": "变量赋值",
+            "moduleid": "b96c59fa-8555-11eb-8f6c-d86b0360bae7",
+            "codeName": "Control.vardefine",
+            "template": "变量名称{{newVar}} 赋值为 {{init}}",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30cd943-00d1-11f1-85c2-aae8ee395a0c",
+                    "name": "newVar",
+                    "valueType": "python",
+                    "value": "用户账号",
+                    "display": "变量名称",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d4be3-00d1-11f1-81d4-aae8ee395a0c",
+                    "name": "init",
+                    "valueType": "python",
+                    "value": "任务数据字典[\"useraccount\"]",
+                    "display": "变量值",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30cd945-00d1-11f1-86ae-aae8ee395a0c",
+            "name": "变量赋值",
+            "moduleid": "b96c59fa-8555-11eb-8f6c-d86b0360bae7",
+            "codeName": "Control.vardefine",
+            "template": "变量名称{{newVar}} 赋值为 {{init}}",
+            "desc": "",
+            "is_enable": false,
+            "inputs": [
+                {
+                    "_id": "f30c6753-00d1-11f1-8eb5-aae8ee395a0c",
+                    "name": "newVar",
+                    "valueType": "python",
+                    "value": "组织机构",
+                    "display": "变量名称",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30c6748-00d1-11f1-9922-aae8ee395a0c",
+                    "name": "init",
+                    "valueType": "python",
+                    "value": "任务数据字典[\"department\"]",
+                    "display": "变量值",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": false
+        },
+        {
+            "_id": "f30cb369-00d1-11f1-b15f-aae8ee395a0c",
+            "name": "自定义代码块",
+            "moduleid": "b806b812-8555-11eb-8e05-d86b0360bae7",
+            "codeName": "Code.generate",
+            "template": " ",
+            "desc": "赋值组织机构",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30da3a7-00d1-11f1-9048-aae8ee395a0c",
+                    "name": "自定义代码块",
+                    "valueType": "string",
+                    "value": "try:\n    组织机构 = 任务数据字典['department']\nexcept Exception:\n    组织机构 = ''",
+                    "display": "自定义代码块",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d2584-00d1-11f1-8d48-aae8ee395a0c",
+            "name": "连接数据库",
+            "moduleid": "b8176834-8555-11eb-bbfb-d86b0360bae7",
+            "codeName": "mysql.connectServer",
+            "template": "连接到地址为{{hostname}}的库{{database}}",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30d721d-00d1-11f1-af40-aae8ee395a0c",
+                    "name": "dbtpye",
+                    "valueType": "string",
+                    "value": "mysql",
+                    "display": "数据库类型",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "mysql",
+                            "value": "mysql"
+                        },
+                        {
+                            "name": "内置数据库",
+                            "value": "sqlite"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30cff61-00d1-11f1-89ab-aae8ee395a0c",
+                    "name": "hostname",
+                    "valueType": "string",
+                    "value": "10.196.193.23",
+                    "display": "数据库ip或域名",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30c8d45-00d1-11f1-9fc3-aae8ee395a0c",
+                    "name": "port",
+                    "valueType": "python",
+                    "value": 3306,
+                    "display": "端口",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d7220-00d1-11f1-9026-aae8ee395a0c",
+                    "name": "username",
+                    "valueType": "string",
+                    "value": "root",
+                    "display": "用户名",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30cff5a-00d1-11f1-a21d-aae8ee395a0c",
+                    "name": "password",
+                    "valueType": "string",
+                    "value": "Sd_12345",
+                    "display": "密码",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d4be4-00d1-11f1-8723-aae8ee395a0c",
+                    "name": "database",
+                    "valueType": "string",
+                    "value": "亿讯-登录系统",
+                    "display": "数据库名称",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30cff5c-00d1-11f1-8946-aae8ee395a0c",
+                    "name": "charset",
+                    "valueType": "string",
+                    "value": "utf8",
+                    "display": "编码类型",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [
+                {
+                    "_id": "f30cd93d-00d1-11f1-b278-aae8ee395a0c",
+                    "name": "outPut",
+                    "valueType": "python",
+                    "value": "conn",
+                    "display": "输出到",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "mysql",
+                            "value": "\"mysql\""
+                        },
+                        {
+                            "name": "内置数据库",
+                            "value": "\"sqlite\""
+                        }
+                    ]
+                }
+            ],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d4bef-00d1-11f1-813f-aae8ee395a0c",
+            "name": "数据查询",
+            "moduleid": "b8dd4c86-8555-11eb-8ca7-d86b0360bae7",
+            "codeName": "mysql.querySQL",
+            "template": "执行{{sqlStr}}的数据查询",
+            "desc": "用户账号对应的cookie",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30d2585-00d1-11f1-a98e-aae8ee395a0c",
+                    "name": "conn",
+                    "valueType": "python",
+                    "value": "conn",
+                    "display": "数据库连接对象",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30cff71-00d1-11f1-acff-aae8ee395a0c",
+                    "name": "sqlStr",
+                    "valueType": "python",
+                    "value": "\"select SESSION,openstack_cookie_insert,省账号,扫码次数,失效时间 from 用户账号对应表 where 用户账号='%s' \"%用户账号",
+                    "display": "执行的SQL语句",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [
+                {
+                    "_id": "f30d7232-00d1-11f1-b494-aae8ee395a0c",
+                    "name": "outPut",
+                    "valueType": "python",
+                    "value": "result",
+                    "display": "输出到",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d4bf3-00d1-11f1-b91a-aae8ee395a0c",
+            "name": "变量赋值",
+            "moduleid": "b96c59fa-8555-11eb-8f6c-d86b0360bae7",
+            "codeName": "Control.vardefine",
+            "template": "变量名称{{newVar}} 赋值为 {{init}}",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30d4bf1-00d1-11f1-8bb6-aae8ee395a0c",
+                    "name": "newVar",
+                    "valueType": "python",
+                    "value": "result",
+                    "display": "变量名称",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30c8d42-00d1-11f1-86a9-aae8ee395a0c",
+                    "name": "init",
+                    "valueType": "python",
+                    "value": "list(result)",
+                    "display": "变量值",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d7236-00d1-11f1-992b-aae8ee395a0c",
+            "name": "打印日志",
+            "moduleid": "b9ce197a-8555-11eb-9cea-d86b0360bae7",
+            "codeName": "Control.print",
+            "template": "打印{{template_string}}",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30d7221-00d1-11f1-9a2d-aae8ee395a0c",
+                    "name": "template_string",
+                    "valueType": "python",
+                    "value": "result",
+                    "display": "模版字符串",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30c432c-00d1-11f1-96dd-aae8ee395a0c",
+                    "name": "logLevel",
+                    "valueType": "python",
+                    "value": "info",
+                    "display": "日志等级",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "INFO",
+                            "value": "info"
+                        },
+                        {
+                            "name": "WARNING",
+                            "value": "warning"
+                        },
+                        {
+                            "name": "ERROR",
+                            "value": "error"
+                        },
+                        {
+                            "name": "DEBUG",
+                            "value": "debug"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30c8d47-00d1-11f1-bf72-aae8ee395a0c",
+                    "name": "replaceType",
+                    "valueType": "python",
+                    "value": "format",
+                    "display": "替换类型",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "format",
+                            "value": "format"
+                        },
+                        {
+                            "name": "format_map",
+                            "value": "format_map"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30cd934-00d1-11f1-ad1c-aae8ee395a0c",
+                    "name": "params",
+                    "valueType": "python",
+                    "value": "",
+                    "display": "传参",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d7231-00d1-11f1-b82d-aae8ee395a0c",
+            "name": "条件分支",
+            "moduleid": "b88e9f1c-8555-11eb-89dc-d86b0360bae7",
+            "codeName": "Control.condition",
+            "template": "如果满足{{ifcondition}} 则",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30cd93e-00d1-11f1-bb02-aae8ee395a0c",
+                    "name": "ifcondition",
+                    "valueType": "python",
+                    "value": "[{\"value1\":\"result\",\"rules\":\"==\",\"value2\":\"[]\",\"pipe\":1}]",
+                    "display": "条件",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "等于",
+                            "value": "=="
+                        },
+                        {
+                            "name": "为假",
+                            "value": "is False",
+                            "key": "6"
+                        },
+                        {
+                            "name": "为真",
+                            "value": "is True",
+                            "key": "5"
+                        },
+                        {
+                            "name": "不包含",
+                            "value": "not in",
+                            "key": "6"
+                        },
+                        {
+                            "name": "包含",
+                            "value": "in",
+                            "key": "5"
+                        },
+                        {
+                            "name": "不等于",
+                            "value": "!="
+                        },
+                        {
+                            "name": "大于",
+                            "value": ">"
+                        },
+                        {
+                            "name": "小于",
+                            "value": "<"
+                        },
+                        {
+                            "name": "大于等于",
+                            "value": ">="
+                        },
+                        {
+                            "name": "小于等于",
+                            "value": "<="
+                        },
+                        {
+                            "name": "空",
+                            "value": "is None"
+                        },
+                        {
+                            "name": "非空",
+                            "value": "is not None"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30c8d53-00d1-11f1-95a6-aae8ee395a0c",
+                    "name": "isShowElse",
+                    "valueType": "python",
+                    "value": true,
+                    "display": "是否展示否则",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ]
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d4bdd-00d1-11f1-8201-aae8ee395a0c",
+            "name": "自定义代码块",
+            "moduleid": "b806b812-8555-11eb-8e05-d86b0360bae7",
+            "codeName": "Code.generate",
+            "template": " ",
+            "desc": "客户端发送消息给服务端",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30cb362-00d1-11f1-8a8f-aae8ee395a0c",
+                    "name": "自定义代码块",
+                    "valueType": "string",
+                    "value": "def 发消息给服务端(端口,发给服务端的消息,数据量):\n    import socket\n    # 创建socket对象\n    sk = socket.socket()\n    # 连接服务端端口\n    sk.connect(('127.0.0.1', int(端口)))\n    # 传消息给服务端\n    sk.send(str(发给服务端的消息).encode('UTF8'))\n    # 接收服务端消息\n    cat = sk.recv(数据量)\n    # print(cat.decode('UTF8'))\n    服务端返回信息 = cat.decode('UTF8')\n    logger.info(\"{}\".format(服务端返回信息), exc_info=True)\n    sk.close()\n    return 服务端返回信息\n\n\n中间件端口 = 13001\n发给中间件的消息 = \"请分配一个端口\"\n服务端端口号=发消息给服务端(中间件端口,发给中间件的消息,1024)\n#logger.info(\"{}\".format(服务端端口号), exc_info=True)\n#发给服务端的消息 = \"请往下操作，截粤政易二维码\"\n发给服务端的消息 = 任务数据字典\nscreenshot = 发消息给服务端(服务端端口号,发给服务端的消息,262144)\n#screenshot = 发消息给服务端(服务端端口号,发给服务端的消息,12288)\n#logger.info(\"客户端base64：{}\".format(screenshot), exc_info=True)",
+                    "display": "自定义代码块",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30cb363-00d1-11f1-9e9a-aae8ee395a0c",
+            "name": "打印日志",
+            "moduleid": "b9ce197a-8555-11eb-9cea-d86b0360bae7",
+            "codeName": "Control.print",
+            "template": "打印{{template_string}}",
+            "desc": "",
+            "is_enable": false,
+            "inputs": [
+                {
+                    "_id": "f30cb36c-00d1-11f1-9db6-aae8ee395a0c",
+                    "name": "template_string",
+                    "valueType": "python",
+                    "value": "\"被分配给此客户端的服务端是：{}\"",
+                    "display": "打印内容",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30da3a4-00d1-11f1-987e-aae8ee395a0c",
+                    "name": "logLevel",
+                    "valueType": "python",
+                    "value": "info",
+                    "display": "日志等级",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "INFO",
+                            "value": "info"
+                        },
+                        {
+                            "name": "WARNING",
+                            "value": "warning"
+                        },
+                        {
+                            "name": "ERROR",
+                            "value": "error"
+                        },
+                        {
+                            "name": "DEBUG",
+                            "value": "debug"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30cd936-00d1-11f1-b669-aae8ee395a0c",
+                    "name": "replaceType",
+                    "valueType": "python",
+                    "value": "format",
+                    "display": "替换类型",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "format",
+                            "value": "format"
+                        },
+                        {
+                            "name": "format_map",
+                            "value": "format_map"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30cff6d-00d1-11f1-96d2-aae8ee395a0c",
+                    "name": "params",
+                    "valueType": "python",
+                    "value": "服务端端口号",
+                    "display": "传参",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": false
+        },
+        {
+            "_id": "f30c674d-00d1-11f1-8e27-aae8ee395a0c",
+            "name": "打印日志",
+            "moduleid": "b9ce197a-8555-11eb-9cea-d86b0360bae7",
+            "codeName": "Control.print",
+            "template": "打印{{template_string}}",
+            "desc": "",
+            "is_enable": false,
+            "inputs": [
+                {
+                    "_id": "f30c4322-00d1-11f1-9619-aae8ee395a0c",
+                    "name": "template_string",
+                    "valueType": "python",
+                    "value": "\"客户端base64：{}\"",
+                    "display": "打印内容",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d4be1-00d1-11f1-806d-aae8ee395a0c",
+                    "name": "logLevel",
+                    "valueType": "python",
+                    "value": "info",
+                    "display": "日志等级",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "INFO",
+                            "value": "info"
+                        },
+                        {
+                            "name": "WARNING",
+                            "value": "warning"
+                        },
+                        {
+                            "name": "ERROR",
+                            "value": "error"
+                        },
+                        {
+                            "name": "DEBUG",
+                            "value": "debug"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30c8d50-00d1-11f1-b387-aae8ee395a0c",
+                    "name": "replaceType",
+                    "valueType": "python",
+                    "value": "format",
+                    "display": "替换类型",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "format",
+                            "value": "format"
+                        },
+                        {
+                            "name": "format_map",
+                            "value": "format_map"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30d2587-00d1-11f1-8b8b-aae8ee395a0c",
+                    "name": "params",
+                    "valueType": "python",
+                    "value": "screenshot",
+                    "display": "传参",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": false
+        },
+        {
+            "_id": "f30d4bd8-00d1-11f1-9a8a-aae8ee395a0c",
+            "name": "设置任务数据状态",
+            "moduleid": "ba028cfe-8555-11eb-bd9d-d86b0360bae7",
+            "codeName": "TaskDataItem.setDataStatus",
+            "template": "设置任务数据字典：{{dataDict}}的状态：{{status}}",
+            "desc": "新用户扫码，返回用户账号和二维码",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30d2597-00d1-11f1-8598-aae8ee395a0c",
+                    "name": "dataDict",
+                    "valueType": "python",
+                    "value": "任务数据字典",
+                    "display": "任务数据字典",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d4bd5-00d1-11f1-a6a9-aae8ee395a0c",
+                    "name": "status",
+                    "valueType": "python",
+                    "value": 3,
+                    "display": "状态",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "等待执行",
+                            "value": 1
+                        },
+                        {
+                            "name": "正在执行",
+                            "value": 2
+                        },
+                        {
+                            "name": "执行成功",
+                            "value": 3
+                        },
+                        {
+                            "name": "执行失败",
+                            "value": 4
+                        },
+                        {
+                            "name": "等待超时",
+                            "value": 5
+                        },
+                        {
+                            "name": "已删除",
+                            "value": 6
+                        },
+                        {
+                            "name": "重试执行",
+                            "value": 7
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30d4bf5-00d1-11f1-8b53-aae8ee395a0c",
+                    "name": "picture",
+                    "valueType": "python",
+                    "value": "\"\"",
+                    "display": "上传截图",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d2598-00d1-11f1-a883-aae8ee395a0c",
+                    "name": "backfill",
+                    "valueType": "python",
+                    "value": "str({\"Useraccount\":\"%s\"%用户账号,\"Scan\":\"True\",\"QRcode\":\"%s\"%screenshot})",
+                    "display": "回填结果",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30c6756-00d1-11f1-b77f-aae8ee395a0c",
+                    "name": "backup",
+                    "valueType": "string",
+                    "value": "请扫码",
+                    "display": "备注信息",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d723c-00d1-11f1-a5b6-aae8ee395a0c",
+                    "name": "delayBefore",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行前延时",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30c4329-00d1-11f1-9600-aae8ee395a0c",
+                    "name": "delayAfter",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行后延时",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d7228-00d1-11f1-bd05-aae8ee395a0c",
+                    "name": "timeout",
+                    "valueType": "python",
+                    "value": 30,
+                    "display": "超时时间",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d2581-00d1-11f1-b28f-aae8ee395a0c",
+                    "name": "continue_on_400",
+                    "valueType": "python",
+                    "value": false,
+                    "display": "通信出错是否继续",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "_id": "f30d7237-00d1-11f1-be85-aae8ee395a0c",
+                    "name": "outPut",
+                    "valueType": "python",
+                    "value": "是否设置成功",
+                    "display": "输出到",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30c674e-00d1-11f1-8047-aae8ee395a0c",
+            "name": "else",
+            "moduleid": "",
+            "codeName": "",
+            "template": "",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [],
+            "outputs": [],
+            "customAttr": {},
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d7229-00d1-11f1-a68e-aae8ee395a0c",
+            "name": "条件分支",
+            "moduleid": "b88e9f1c-8555-11eb-89dc-d86b0360bae7",
+            "codeName": "Control.condition",
+            "template": "如果满足{{ifcondition}} 则",
+            "desc": "list(result[0])[2]对应的就是省账号字段值",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30d2599-00d1-11f1-beb6-aae8ee395a0c",
+                    "name": "ifcondition",
+                    "valueType": "python",
+                    "value": "[{\"value1\":\"result[0]['省账号']\",\"rules\":\"==\",\"value2\":\"'无对应省账号'\",\"pipe\":1}]",
+                    "display": "条件",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "等于",
+                            "value": "=="
+                        },
+                        {
+                            "name": "为假",
+                            "value": "is False",
+                            "key": "6"
+                        },
+                        {
+                            "name": "为真",
+                            "value": "is True",
+                            "key": "5"
+                        },
+                        {
+                            "name": "不包含",
+                            "value": "not in",
+                            "key": "6"
+                        },
+                        {
+                            "name": "包含",
+                            "value": "in",
+                            "key": "5"
+                        },
+                        {
+                            "name": "不等于",
+                            "value": "!="
+                        },
+                        {
+                            "name": "大于",
+                            "value": ">"
+                        },
+                        {
+                            "name": "小于",
+                            "value": "<"
+                        },
+                        {
+                            "name": "大于等于",
+                            "value": ">="
+                        },
+                        {
+                            "name": "小于等于",
+                            "value": "<="
+                        },
+                        {
+                            "name": "空",
+                            "value": "is None"
+                        },
+                        {
+                            "name": "非空",
+                            "value": "is not None"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30c674f-00d1-11f1-a535-aae8ee395a0c",
+                    "name": "isShowElse",
+                    "valueType": "python",
+                    "value": true,
+                    "display": "是否展示否则",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ]
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d4bd6-00d1-11f1-9b8d-aae8ee395a0c",
+            "name": "打印日志",
+            "moduleid": "b9ce197a-8555-11eb-9cea-d86b0360bae7",
+            "codeName": "Control.print",
+            "template": "打印{{template_string}}",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30d722e-00d1-11f1-b86c-aae8ee395a0c",
+                    "name": "template_string",
+                    "valueType": "string",
+                    "value": "用户账号没有对应省账号",
+                    "display": "模版字符串",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d4bd4-00d1-11f1-bdb2-aae8ee395a0c",
+                    "name": "logLevel",
+                    "valueType": "python",
+                    "value": "info",
+                    "display": "日志等级",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "INFO",
+                            "value": "info"
+                        },
+                        {
+                            "name": "WARNING",
+                            "value": "warning"
+                        },
+                        {
+                            "name": "ERROR",
+                            "value": "error"
+                        },
+                        {
+                            "name": "DEBUG",
+                            "value": "debug"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30d7240-00d1-11f1-868f-aae8ee395a0c",
+                    "name": "replaceType",
+                    "valueType": "python",
+                    "value": "format",
+                    "display": "替换类型",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "format",
+                            "value": "format"
+                        },
+                        {
+                            "name": "format_map",
+                            "value": "format_map"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30c4321-00d1-11f1-b9d8-aae8ee395a0c",
+                    "name": "params",
+                    "valueType": "python",
+                    "value": "",
+                    "display": "传参",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d4be9-00d1-11f1-b3a2-aae8ee395a0c",
+            "name": "设置任务数据状态",
+            "moduleid": "ba028cfe-8555-11eb-bd9d-d86b0360bae7",
+            "codeName": "TaskDataItem.setDataStatus",
+            "template": "设置任务数据字典：{{dataDict}}的状态：{{status}}",
+            "desc": "已存用户，没有对应省账号，不需要扫码",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30cd935-00d1-11f1-84f7-aae8ee395a0c",
+                    "name": "dataDict",
+                    "valueType": "python",
+                    "value": "任务数据字典",
+                    "display": "任务数据字典",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d4bec-00d1-11f1-a89f-aae8ee395a0c",
+                    "name": "status",
+                    "valueType": "python",
+                    "value": 3,
+                    "display": "状态",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "等待执行",
+                            "value": 1
+                        },
+                        {
+                            "name": "正在执行",
+                            "value": 2
+                        },
+                        {
+                            "name": "执行成功",
+                            "value": 3
+                        },
+                        {
+                            "name": "执行失败",
+                            "value": 4
+                        },
+                        {
+                            "name": "等待超时",
+                            "value": 5
+                        },
+                        {
+                            "name": "已删除",
+                            "value": 6
+                        },
+                        {
+                            "name": "重试执行",
+                            "value": 7
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30cff66-00d1-11f1-b258-aae8ee395a0c",
+                    "name": "picture",
+                    "valueType": "python",
+                    "value": "\"\"",
+                    "display": "上传截图",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d4beb-00d1-11f1-991f-aae8ee395a0c",
+                    "name": "backfill",
+                    "valueType": "python",
+                    "value": "str({\"Useraccount\":\"%s\"%用户账号,\"Scan\":\"False\",\"Reason\":\"用户没有对应省账号，不需要扫码\"})\n",
+                    "display": "回填结果",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d7230-00d1-11f1-9a85-aae8ee395a0c",
+                    "name": "backup",
+                    "valueType": "string",
+                    "value": "不需要扫码噢",
+                    "display": "备注信息",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d258b-00d1-11f1-a2a3-aae8ee395a0c",
+                    "name": "delayBefore",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行前延时",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d7241-00d1-11f1-af52-aae8ee395a0c",
+                    "name": "delayAfter",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行后延时",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d722d-00d1-11f1-8f15-aae8ee395a0c",
+                    "name": "timeout",
+                    "valueType": "python",
+                    "value": 30,
+                    "display": "超时时间",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d7242-00d1-11f1-a5e9-aae8ee395a0c",
+                    "name": "continue_on_400",
+                    "valueType": "python",
+                    "value": false,
+                    "display": "通信出错是否继续",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "_id": "f30cd940-00d1-11f1-956f-aae8ee395a0c",
+                    "name": "outPut",
+                    "valueType": "python",
+                    "value": "是否设置成功",
+                    "display": "输出到",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30cff6b-00d1-11f1-a3c0-aae8ee395a0c",
+            "name": "else",
+            "moduleid": "",
+            "codeName": "",
+            "template": "",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [],
+            "outputs": [],
+            "customAttr": {},
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30c8d51-00d1-11f1-bb8a-aae8ee395a0c",
+            "name": "条件分支",
+            "moduleid": "b88e9f1c-8555-11eb-89dc-d86b0360bae7",
+            "codeName": "Control.condition",
+            "template": "如果满足{{ifcondition}} 则",
+            "desc": "list(result[0])[3]对应扫码次数",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30cff72-00d1-11f1-b222-aae8ee395a0c",
+                    "name": "ifcondition",
+                    "valueType": "python",
+                    "value": "[{\"value1\":\"result[0]['扫码次数']\",\"rules\":\"==\",\"value2\":\"0\",\"pipe\":1}]",
+                    "display": "条件",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "等于",
+                            "value": "=="
+                        },
+                        {
+                            "name": "为假",
+                            "value": "is False",
+                            "key": "6"
+                        },
+                        {
+                            "name": "为真",
+                            "value": "is True",
+                            "key": "5"
+                        },
+                        {
+                            "name": "不包含",
+                            "value": "not in",
+                            "key": "6"
+                        },
+                        {
+                            "name": "包含",
+                            "value": "in",
+                            "key": "5"
+                        },
+                        {
+                            "name": "不等于",
+                            "value": "!="
+                        },
+                        {
+                            "name": "大于",
+                            "value": ">"
+                        },
+                        {
+                            "name": "小于",
+                            "value": "<"
+                        },
+                        {
+                            "name": "大于等于",
+                            "value": ">="
+                        },
+                        {
+                            "name": "小于等于",
+                            "value": "<="
+                        },
+                        {
+                            "name": "空",
+                            "value": "is None"
+                        },
+                        {
+                            "name": "非空",
+                            "value": "is not None"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30c8d4d-00d1-11f1-9a73-aae8ee395a0c",
+                    "name": "isShowElse",
+                    "valueType": "python",
+                    "value": false,
+                    "display": "是否展示否则",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ]
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30c6749-00d1-11f1-af72-aae8ee395a0c",
+            "name": "变量赋值",
+            "moduleid": "b96c59fa-8555-11eb-8f6c-d86b0360bae7",
+            "codeName": "Control.vardefine",
+            "template": "变量名称{{newVar}} 赋值为 {{init}}",
+            "desc": "取出此用户账号的失效时间字段",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30d259c-00d1-11f1-9d66-aae8ee395a0c",
+                    "name": "newVar",
+                    "valueType": "python",
+                    "value": "失效时间",
+                    "display": "变量名称",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30cd938-00d1-11f1-b531-aae8ee395a0c",
+                    "name": "init",
+                    "valueType": "python",
+                    "value": "result[0]['失效时间']",
+                    "display": "变量值",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d257c-00d1-11f1-b165-aae8ee395a0c",
+            "name": "打印日志",
+            "moduleid": "b9ce197a-8555-11eb-9cea-d86b0360bae7",
+            "codeName": "Control.print",
+            "template": "打印{{template_string}}",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30cb367-00d1-11f1-86e7-aae8ee395a0c",
+                    "name": "template_string",
+                    "valueType": "python",
+                    "value": "\"失效时间:{}\"",
+                    "display": "打印内容",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30c431f-00d1-11f1-bee8-aae8ee395a0c",
+                    "name": "logLevel",
+                    "valueType": "python",
+                    "value": "info",
+                    "display": "日志等级",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "INFO",
+                            "value": "info"
+                        },
+                        {
+                            "name": "WARNING",
+                            "value": "warning"
+                        },
+                        {
+                            "name": "ERROR",
+                            "value": "error"
+                        },
+                        {
+                            "name": "DEBUG",
+                            "value": "debug"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30c6750-00d1-11f1-940a-aae8ee395a0c",
+                    "name": "replaceType",
+                    "valueType": "python",
+                    "value": "format",
+                    "display": "替换类型",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "format",
+                            "value": "format"
+                        },
+                        {
+                            "name": "format_map",
+                            "value": "format_map"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30d721e-00d1-11f1-8633-aae8ee395a0c",
+                    "name": "params",
+                    "valueType": "python",
+                    "value": "失效时间",
+                    "display": "传参",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d4bda-00d1-11f1-a87b-aae8ee395a0c",
+            "name": "条件分支",
+            "moduleid": "b88e9f1c-8555-11eb-89dc-d86b0360bae7",
+            "codeName": "Control.condition",
+            "template": "如果满足{{ifcondition}} 则",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30c6752-00d1-11f1-bdda-aae8ee395a0c",
+                    "name": "ifcondition",
+                    "valueType": "python",
+                    "value": "[{\"value1\":\"失效时间\",\"rules\":\"is None\",\"value2\":\"\",\"pipe\":0},{\"value1\":\"失效时间\",\"rules\":\"==\",\"value2\":\"''\",\"pipe\":0}]",
+                    "display": "条件",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "等于",
+                            "value": "=="
+                        },
+                        {
+                            "name": "为假",
+                            "value": "is False",
+                            "key": "6"
+                        },
+                        {
+                            "name": "为真",
+                            "value": "is True",
+                            "key": "5"
+                        },
+                        {
+                            "name": "不包含",
+                            "value": "not in",
+                            "key": "6"
+                        },
+                        {
+                            "name": "包含",
+                            "value": "in",
+                            "key": "5"
+                        },
+                        {
+                            "name": "不等于",
+                            "value": "!="
+                        },
+                        {
+                            "name": "大于",
+                            "value": ">"
+                        },
+                        {
+                            "name": "小于",
+                            "value": "<"
+                        },
+                        {
+                            "name": "大于等于",
+                            "value": ">="
+                        },
+                        {
+                            "name": "小于等于",
+                            "value": "<="
+                        },
+                        {
+                            "name": "空",
+                            "value": "is None"
+                        },
+                        {
+                            "name": "非空",
+                            "value": "is not None"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30d2578-00d1-11f1-9df6-aae8ee395a0c",
+                    "name": "isShowElse",
+                    "valueType": "python",
+                    "value": true,
+                    "display": "是否展示否则",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ]
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d722b-00d1-11f1-875c-aae8ee395a0c",
+            "name": "打印日志",
+            "moduleid": "b9ce197a-8555-11eb-9cea-d86b0360bae7",
+            "codeName": "Control.print",
+            "template": "打印{{template_string}}",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30c4320-00d1-11f1-8588-aae8ee395a0c",
+                    "name": "template_string",
+                    "valueType": "string",
+                    "value": "用户cookie有效，不需要扫码",
+                    "display": "模版字符串",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d7233-00d1-11f1-bbcd-aae8ee395a0c",
+                    "name": "logLevel",
+                    "valueType": "python",
+                    "value": "info",
+                    "display": "日志等级",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "INFO",
+                            "value": "info"
+                        },
+                        {
+                            "name": "WARNING",
+                            "value": "warning"
+                        },
+                        {
+                            "name": "ERROR",
+                            "value": "error"
+                        },
+                        {
+                            "name": "DEBUG",
+                            "value": "debug"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30cff62-00d1-11f1-a631-aae8ee395a0c",
+                    "name": "replaceType",
+                    "valueType": "python",
+                    "value": "format",
+                    "display": "替换类型",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "format",
+                            "value": "format"
+                        },
+                        {
+                            "name": "format_map",
+                            "value": "format_map"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30d722f-00d1-11f1-85a9-aae8ee395a0c",
+                    "name": "params",
+                    "valueType": "python",
+                    "value": "",
+                    "display": "传参",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30cd93a-00d1-11f1-bf86-aae8ee395a0c",
+            "name": "设置任务数据状态",
+            "moduleid": "ba028cfe-8555-11eb-bd9d-d86b0360bae7",
+            "codeName": "TaskDataItem.setDataStatus",
+            "template": "设置任务数据字典：{{dataDict}}的状态：{{status}}",
+            "desc": "已存账号，cookie没有失效，不需要扫码",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30d4bdb-00d1-11f1-ba8e-aae8ee395a0c",
+                    "name": "dataDict",
+                    "valueType": "python",
+                    "value": "任务数据字典",
+                    "display": "任务数据字典",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30c8d49-00d1-11f1-8b1c-aae8ee395a0c",
+                    "name": "status",
+                    "valueType": "python",
+                    "value": 3,
+                    "display": "状态",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "等待执行",
+                            "value": 1
+                        },
+                        {
+                            "name": "正在执行",
+                            "value": 2
+                        },
+                        {
+                            "name": "执行成功",
+                            "value": 3
+                        },
+                        {
+                            "name": "执行失败",
+                            "value": 4
+                        },
+                        {
+                            "name": "等待超时",
+                            "value": 5
+                        },
+                        {
+                            "name": "已删除",
+                            "value": 6
+                        },
+                        {
+                            "name": "重试执行",
+                            "value": 7
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30d7239-00d1-11f1-8260-aae8ee395a0c",
+                    "name": "picture",
+                    "valueType": "python",
+                    "value": "\"\"",
+                    "display": "上传截图",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30cb366-00d1-11f1-9797-aae8ee395a0c",
+                    "name": "backfill",
+                    "valueType": "python",
+                    "value": "str({\"Useraccount\":\"%s\"%用户账号,\"Scan\":\"False\",\"Reason\":\"用户cookie有效，不需要扫码\"})",
+                    "display": "回填结果",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d4bdc-00d1-11f1-939e-aae8ee395a0c",
+                    "name": "backup",
+                    "valueType": "string",
+                    "value": "不需要扫码噢",
+                    "display": "备注信息",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30cd944-00d1-11f1-ab7b-aae8ee395a0c",
+                    "name": "delayBefore",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行前延时",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30da3aa-00d1-11f1-811a-aae8ee395a0c",
+                    "name": "delayAfter",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行后延时",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d4be0-00d1-11f1-bc30-aae8ee395a0c",
+                    "name": "timeout",
+                    "valueType": "python",
+                    "value": 30,
+                    "display": "超时时间",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d721a-00d1-11f1-aff4-aae8ee395a0c",
+                    "name": "continue_on_400",
+                    "valueType": "python",
+                    "value": false,
+                    "display": "通信出错是否继续",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "_id": "f30d4bf6-00d1-11f1-afa1-aae8ee395a0c",
+                    "name": "outPut",
+                    "valueType": "python",
+                    "value": "是否设置成功",
+                    "display": "输出到",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30c431c-00d1-11f1-a3f2-aae8ee395a0c",
+            "name": "else",
+            "moduleid": "",
+            "codeName": "",
+            "template": "",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [],
+            "outputs": [],
+            "customAttr": {},
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d4be2-00d1-11f1-ae53-aae8ee395a0c",
+            "name": "自定义代码块",
+            "moduleid": "b806b812-8555-11eb-8e05-d86b0360bae7",
+            "codeName": "Code.generate",
+            "template": " ",
+            "desc": "客户端发送消息给服务端",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30d723b-00d1-11f1-83c5-aae8ee395a0c",
+                    "name": "自定义代码块",
+                    "valueType": "string",
+                    "value": "def 发消息给服务端(端口,发给服务端的消息,数据量):\n    import socket\n    # 创建socket对象\n    sk = socket.socket()\n    # 连接服务端端口\n    sk.connect(('127.0.0.1', int(端口)))\n    # 传消息给服务端\n    sk.send(str(发给服务端的消息).encode('UTF8'))\n    # 接收服务端消息\n    cat = sk.recv(数据量)\n    # print(cat.decode('UTF8'))\n    服务端返回信息 = cat.decode('UTF8')\n    logger.info(\"{}\".format(服务端返回信息), exc_info=True)\n    sk.close()\n    return 服务端返回信息\n\n\n中间件端口 = 13001\n发给中间件的消息 = \"请分配一个端口\"\n服务端端口号=发消息给服务端(中间件端口,发给中间件的消息,1024)\n#logger.info(\"{}\".format(服务端端口号), exc_info=True)\n#发给服务端的消息 = \"请往下操作，截粤政易二维码\"\n发给服务端的消息 = 任务数据字典\nscreenshot = 发消息给服务端(服务端端口号,发给服务端的消息,262144)\n#logger.info(\"客户端base64：{}\".format(screenshot), exc_info=True)",
+                    "display": "自定义代码块",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d257f-00d1-11f1-a02d-aae8ee395a0c",
+            "name": "打印日志",
+            "moduleid": "b9ce197a-8555-11eb-9cea-d86b0360bae7",
+            "codeName": "Control.print",
+            "template": "打印{{template_string}}",
+            "desc": "",
+            "is_enable": false,
+            "inputs": [
+                {
+                    "_id": "f30d4bf7-00d1-11f1-9681-aae8ee395a0c",
+                    "name": "template_string",
+                    "valueType": "python",
+                    "value": "\"被分配给此客户端的服务端是：{}\"",
+                    "display": "打印内容",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d7235-00d1-11f1-b282-aae8ee395a0c",
+                    "name": "logLevel",
+                    "valueType": "python",
+                    "value": "info",
+                    "display": "日志等级",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "INFO",
+                            "value": "info"
+                        },
+                        {
+                            "name": "WARNING",
+                            "value": "warning"
+                        },
+                        {
+                            "name": "ERROR",
+                            "value": "error"
+                        },
+                        {
+                            "name": "DEBUG",
+                            "value": "debug"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30cff5d-00d1-11f1-9e95-aae8ee395a0c",
+                    "name": "replaceType",
+                    "valueType": "python",
+                    "value": "format",
+                    "display": "替换类型",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "format",
+                            "value": "format"
+                        },
+                        {
+                            "name": "format_map",
+                            "value": "format_map"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30d2590-00d1-11f1-b47a-aae8ee395a0c",
+                    "name": "params",
+                    "valueType": "python",
+                    "value": "服务端端口号",
+                    "display": "传参",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": false
+        },
+        {
+            "_id": "f30d2593-00d1-11f1-b0d4-aae8ee395a0c",
+            "name": "打印日志",
+            "moduleid": "b9ce197a-8555-11eb-9cea-d86b0360bae7",
+            "codeName": "Control.print",
+            "template": "打印{{template_string}}",
+            "desc": "",
+            "is_enable": false,
+            "inputs": [
+                {
+                    "_id": "f30d2582-00d1-11f1-a6c0-aae8ee395a0c",
+                    "name": "template_string",
+                    "valueType": "python",
+                    "value": "\"客户端base64：{}\"",
+                    "display": "打印内容",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d7243-00d1-11f1-a507-aae8ee395a0c",
+                    "name": "logLevel",
+                    "valueType": "python",
+                    "value": "info",
+                    "display": "日志等级",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "INFO",
+                            "value": "info"
+                        },
+                        {
+                            "name": "WARNING",
+                            "value": "warning"
+                        },
+                        {
+                            "name": "ERROR",
+                            "value": "error"
+                        },
+                        {
+                            "name": "DEBUG",
+                            "value": "debug"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30cff5e-00d1-11f1-a0d6-aae8ee395a0c",
+                    "name": "replaceType",
+                    "valueType": "python",
+                    "value": "format",
+                    "display": "替换类型",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "format",
+                            "value": "format"
+                        },
+                        {
+                            "name": "format_map",
+                            "value": "format_map"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30d7247-00d1-11f1-b783-aae8ee395a0c",
+                    "name": "params",
+                    "valueType": "python",
+                    "value": "screenshot",
+                    "display": "传参",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": false
+        },
+        {
+            "_id": "f30d4bf4-00d1-11f1-a374-aae8ee395a0c",
+            "name": "设置任务数据状态",
+            "moduleid": "ba028cfe-8555-11eb-bd9d-d86b0360bae7",
+            "codeName": "TaskDataItem.setDataStatus",
+            "template": "设置任务数据字典：{{dataDict}}的状态：{{status}}",
+            "desc": "扫码，返回用户账号和二维码",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30cb364-00d1-11f1-ba29-aae8ee395a0c",
+                    "name": "dataDict",
+                    "valueType": "python",
+                    "value": "任务数据字典",
+                    "display": "任务数据字典",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30cd93c-00d1-11f1-875e-aae8ee395a0c",
+                    "name": "status",
+                    "valueType": "python",
+                    "value": 3,
+                    "display": "状态",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "等待执行",
+                            "value": 1
+                        },
+                        {
+                            "name": "正在执行",
+                            "value": 2
+                        },
+                        {
+                            "name": "执行成功",
+                            "value": 3
+                        },
+                        {
+                            "name": "执行失败",
+                            "value": 4
+                        },
+                        {
+                            "name": "等待超时",
+                            "value": 5
+                        },
+                        {
+                            "name": "已删除",
+                            "value": 6
+                        },
+                        {
+                            "name": "重试执行",
+                            "value": 7
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30cff6a-00d1-11f1-a0e9-aae8ee395a0c",
+                    "name": "picture",
+                    "valueType": "python",
+                    "value": "\"\"",
+                    "display": "上传截图",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d721f-00d1-11f1-91dd-aae8ee395a0c",
+                    "name": "backfill",
+                    "valueType": "python",
+                    "value": "str({\"Useraccount\":\"%s\"%用户账号,\"Scan\":\"True\",\"QRcode\":\"%s\"%screenshot})",
+                    "display": "回填结果",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30da3a9-00d1-11f1-8390-aae8ee395a0c",
+                    "name": "backup",
+                    "valueType": "string",
+                    "value": "请扫码",
+                    "display": "备注信息",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30c674c-00d1-11f1-b7f6-aae8ee395a0c",
+                    "name": "delayBefore",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行前延时",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30c8d4f-00d1-11f1-8920-aae8ee395a0c",
+                    "name": "delayAfter",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行后延时",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d2589-00d1-11f1-b046-aae8ee395a0c",
+                    "name": "timeout",
+                    "valueType": "python",
+                    "value": 30,
+                    "display": "超时时间",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d4be5-00d1-11f1-a958-aae8ee395a0c",
+                    "name": "continue_on_400",
+                    "valueType": "python",
+                    "value": false,
+                    "display": "通信出错是否继续",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "_id": "f30d7245-00d1-11f1-a4fa-aae8ee395a0c",
+                    "name": "outPut",
+                    "valueType": "python",
+                    "value": "是否设置成功",
+                    "display": "输出到",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30c8d43-00d1-11f1-8b4e-aae8ee395a0c",
+            "name": "endIf",
+            "moduleid": "",
+            "codeName": "",
+            "template": "",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [],
+            "outputs": [],
+            "customAttr": {},
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d7244-00d1-11f1-9cbc-aae8ee395a0c",
+            "name": "else",
+            "moduleid": "",
+            "codeName": "",
+            "template": "",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [],
+            "outputs": [],
+            "customAttr": {},
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d4bf0-00d1-11f1-b067-aae8ee395a0c",
+            "name": "endIf",
+            "moduleid": "",
+            "codeName": "",
+            "template": "",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [],
+            "outputs": [],
+            "customAttr": {},
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d7238-00d1-11f1-a2a8-aae8ee395a0c",
+            "name": "条件分支",
+            "moduleid": "b88e9f1c-8555-11eb-89dc-d86b0360bae7",
+            "codeName": "Control.condition",
+            "template": "如果满足{{ifcondition}} 则",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30c4327-00d1-11f1-af38-aae8ee395a0c",
+                    "name": "ifcondition",
+                    "valueType": "python",
+                    "value": "[{\"value1\":\"result[0]['扫码次数']\",\"rules\":\">\",\"value2\":\"0\",\"pipe\":1},{\"value1\":\"result[0]['扫码次数']\",\"rules\":\"<\",\"value2\":\"1001\",\"pipe\":1}]",
+                    "display": "条件",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "等于",
+                            "value": "=="
+                        },
+                        {
+                            "name": "为假",
+                            "value": "is False",
+                            "key": "6"
+                        },
+                        {
+                            "name": "为真",
+                            "value": "is True",
+                            "key": "5"
+                        },
+                        {
+                            "name": "不包含",
+                            "value": "not in",
+                            "key": "6"
+                        },
+                        {
+                            "name": "包含",
+                            "value": "in",
+                            "key": "5"
+                        },
+                        {
+                            "name": "不等于",
+                            "value": "!="
+                        },
+                        {
+                            "name": "大于",
+                            "value": ">"
+                        },
+                        {
+                            "name": "小于",
+                            "value": "<"
+                        },
+                        {
+                            "name": "大于等于",
+                            "value": ">="
+                        },
+                        {
+                            "name": "小于等于",
+                            "value": "<="
+                        },
+                        {
+                            "name": "空",
+                            "value": "is None"
+                        },
+                        {
+                            "name": "非空",
+                            "value": "is not None"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30d2583-00d1-11f1-b2a5-aae8ee395a0c",
+                    "name": "isShowElse",
+                    "valueType": "python",
+                    "value": false,
+                    "display": "是否展示否则",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ]
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30cff67-00d1-11f1-b3ee-aae8ee395a0c",
+            "name": "自定义代码块",
+            "moduleid": "b806b812-8555-11eb-8e05-d86b0360bae7",
+            "codeName": "Code.generate",
+            "template": " ",
+            "desc": "客户端发送消息给服务端",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30d4bea-00d1-11f1-b0a6-aae8ee395a0c",
+                    "name": "自定义代码块",
+                    "valueType": "string",
+                    "value": "def 发消息给服务端(端口,发给服务端的消息,数据量):\n    import socket\n    # 创建socket对象\n    sk = socket.socket()\n    # 连接服务端端口\n    sk.connect(('127.0.0.1', int(端口)))\n    # 传消息给服务端\n    sk.send(str(发给服务端的消息).encode('UTF8'))\n    # 接收服务端消息\n    cat = sk.recv(数据量)\n    # print(cat.decode('UTF8'))\n    服务端返回信息 = cat.decode('UTF8')\n    logger.info(\"{}\".format(服务端返回信息), exc_info=True)\n    sk.close()\n    return 服务端返回信息\n\n\n中间件端口 = 13001\n发给中间件的消息 = \"请分配一个端口\"\n服务端端口号=发消息给服务端(中间件端口,发给中间件的消息,1024)\n#logger.info(\"{}\".format(服务端端口号), exc_info=True)\n#发给服务端的消息 = \"请往下操作，截粤政易二维码\"\n发给服务端的消息 = 任务数据字典\nscreenshot = 发消息给服务端(服务端端口号,发给服务端的消息,262144)\n#logger.info(\"客户端base64：{}\".format(screenshot), exc_info=True)",
+                    "display": "自定义代码块",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30cd941-00d1-11f1-b513-aae8ee395a0c",
+            "name": "打印日志",
+            "moduleid": "b9ce197a-8555-11eb-9cea-d86b0360bae7",
+            "codeName": "Control.print",
+            "template": "打印{{template_string}}",
+            "desc": "",
+            "is_enable": false,
+            "inputs": [
+                {
+                    "_id": "f30cff5f-00d1-11f1-9d55-aae8ee395a0c",
+                    "name": "template_string",
+                    "valueType": "python",
+                    "value": "\"被分配给此客户端的服务端是：{}\"",
+                    "display": "打印内容",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d4be6-00d1-11f1-be58-aae8ee395a0c",
+                    "name": "logLevel",
+                    "valueType": "python",
+                    "value": "info",
+                    "display": "日志等级",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "INFO",
+                            "value": "info"
+                        },
+                        {
+                            "name": "WARNING",
+                            "value": "warning"
+                        },
+                        {
+                            "name": "ERROR",
+                            "value": "error"
+                        },
+                        {
+                            "name": "DEBUG",
+                            "value": "debug"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30cb36e-00d1-11f1-b2e5-aae8ee395a0c",
+                    "name": "replaceType",
+                    "valueType": "python",
+                    "value": "format",
+                    "display": "替换类型",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "format",
+                            "value": "format"
+                        },
+                        {
+                            "name": "format_map",
+                            "value": "format_map"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30c4324-00d1-11f1-a057-aae8ee395a0c",
+                    "name": "params",
+                    "valueType": "python",
+                    "value": "服务端端口号",
+                    "display": "传参",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": false
+        },
+        {
+            "_id": "f30d259b-00d1-11f1-968f-aae8ee395a0c",
+            "name": "打印日志",
+            "moduleid": "b9ce197a-8555-11eb-9cea-d86b0360bae7",
+            "codeName": "Control.print",
+            "template": "打印{{template_string}}",
+            "desc": "",
+            "is_enable": false,
+            "inputs": [
+                {
+                    "_id": "f30d723e-00d1-11f1-8c02-aae8ee395a0c",
+                    "name": "template_string",
+                    "valueType": "python",
+                    "value": "\"客户端base64：{}\"",
+                    "display": "打印内容",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30c8d52-00d1-11f1-a278-aae8ee395a0c",
+                    "name": "logLevel",
+                    "valueType": "python",
+                    "value": "info",
+                    "display": "日志等级",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "INFO",
+                            "value": "info"
+                        },
+                        {
+                            "name": "WARNING",
+                            "value": "warning"
+                        },
+                        {
+                            "name": "ERROR",
+                            "value": "error"
+                        },
+                        {
+                            "name": "DEBUG",
+                            "value": "debug"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30cb368-00d1-11f1-81a4-aae8ee395a0c",
+                    "name": "replaceType",
+                    "valueType": "python",
+                    "value": "format",
+                    "display": "替换类型",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "format",
+                            "value": "format"
+                        },
+                        {
+                            "name": "format_map",
+                            "value": "format_map"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30c6751-00d1-11f1-8a0d-aae8ee395a0c",
+                    "name": "params",
+                    "valueType": "python",
+                    "value": "screenshot",
+                    "display": "传参",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": false
+        },
+        {
+            "_id": "f30cff65-00d1-11f1-b176-aae8ee395a0c",
+            "name": "设置任务数据状态",
+            "moduleid": "ba028cfe-8555-11eb-bd9d-d86b0360bae7",
+            "codeName": "TaskDataItem.setDataStatus",
+            "template": "设置任务数据字典：{{dataDict}}的状态：{{status}}",
+            "desc": "扫码，返回用户账号和二维码",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30c4323-00d1-11f1-a2e5-aae8ee395a0c",
+                    "name": "dataDict",
+                    "valueType": "python",
+                    "value": "任务数据字典",
+                    "display": "任务数据字典",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30cd93b-00d1-11f1-8758-aae8ee395a0c",
+                    "name": "status",
+                    "valueType": "python",
+                    "value": 3,
+                    "display": "状态",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "等待执行",
+                            "value": 1
+                        },
+                        {
+                            "name": "正在执行",
+                            "value": 2
+                        },
+                        {
+                            "name": "执行成功",
+                            "value": 3
+                        },
+                        {
+                            "name": "执行失败",
+                            "value": 4
+                        },
+                        {
+                            "name": "等待超时",
+                            "value": 5
+                        },
+                        {
+                            "name": "已删除",
+                            "value": 6
+                        },
+                        {
+                            "name": "重试执行",
+                            "value": 7
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30d4bf8-00d1-11f1-9677-aae8ee395a0c",
+                    "name": "picture",
+                    "valueType": "python",
+                    "value": "\"\"",
+                    "display": "上传截图",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d723a-00d1-11f1-89a2-aae8ee395a0c",
+                    "name": "backfill",
+                    "valueType": "python",
+                    "value": "str({\"Useraccount\":\"%s\"%用户账号,\"Scan\":\"True\",\"QRcode\":\"%s\"%screenshot})",
+                    "display": "回填结果",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30cb36b-00d1-11f1-93ab-aae8ee395a0c",
+                    "name": "backup",
+                    "valueType": "string",
+                    "value": "请扫码",
+                    "display": "备注信息",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d723f-00d1-11f1-84ae-aae8ee395a0c",
+                    "name": "delayBefore",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行前延时",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d2594-00d1-11f1-8aa7-aae8ee395a0c",
+                    "name": "delayAfter",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行后延时",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30cff6c-00d1-11f1-81c2-aae8ee395a0c",
+                    "name": "timeout",
+                    "valueType": "python",
+                    "value": 30,
+                    "display": "超时时间",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d4bd7-00d1-11f1-8611-aae8ee395a0c",
+                    "name": "continue_on_400",
+                    "valueType": "python",
+                    "value": false,
+                    "display": "通信出错是否继续",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "_id": "f30d4be7-00d1-11f1-8382-aae8ee395a0c",
+                    "name": "outPut",
+                    "valueType": "python",
+                    "value": "是否设置成功",
+                    "display": "输出到",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30c1fba-00d1-11f1-8bdc-aae8ee395a0c",
+            "name": "else",
+            "moduleid": "",
+            "codeName": "",
+            "template": "",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [],
+            "outputs": [],
+            "customAttr": {},
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d4bde-00d1-11f1-b34c-aae8ee395a0c",
+            "name": "endIf",
+            "moduleid": "",
+            "codeName": "",
+            "template": "",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [],
+            "outputs": [],
+            "customAttr": {},
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30c4325-00d1-11f1-9e12-aae8ee395a0c",
+            "name": "条件分支",
+            "moduleid": "b88e9f1c-8555-11eb-89dc-d86b0360bae7",
+            "codeName": "Control.condition",
+            "template": "如果满足{{ifcondition}} 则",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30d257b-00d1-11f1-8417-aae8ee395a0c",
+                    "name": "ifcondition",
+                    "valueType": "python",
+                    "value": "[{\"value1\":\"result[0]['扫码次数']\",\"rules\":\">=\",\"value2\":\"1001\",\"pipe\":1}]",
+                    "display": "条件",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "等于",
+                            "value": "=="
+                        },
+                        {
+                            "name": "为假",
+                            "value": "is False",
+                            "key": "6"
+                        },
+                        {
+                            "name": "为真",
+                            "value": "is True",
+                            "key": "5"
+                        },
+                        {
+                            "name": "不包含",
+                            "value": "not in",
+                            "key": "6"
+                        },
+                        {
+                            "name": "包含",
+                            "value": "in",
+                            "key": "5"
+                        },
+                        {
+                            "name": "不等于",
+                            "value": "!="
+                        },
+                        {
+                            "name": "大于",
+                            "value": ">"
+                        },
+                        {
+                            "name": "小于",
+                            "value": "<"
+                        },
+                        {
+                            "name": "大于等于",
+                            "value": ">="
+                        },
+                        {
+                            "name": "小于等于",
+                            "value": "<="
+                        },
+                        {
+                            "name": "空",
+                            "value": "is None"
+                        },
+                        {
+                            "name": "非空",
+                            "value": "is not None"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30d721c-00d1-11f1-a1f0-aae8ee395a0c",
+                    "name": "isShowElse",
+                    "valueType": "python",
+                    "value": false,
+                    "display": "是否展示否则",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ]
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30c6747-00d1-11f1-9ccc-aae8ee395a0c",
+            "name": "打印日志",
+            "moduleid": "b9ce197a-8555-11eb-9cea-d86b0360bae7",
+            "codeName": "Control.print",
+            "template": "打印{{template_string}}",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30c6755-00d1-11f1-ad21-aae8ee395a0c",
+                    "name": "template_string",
+                    "valueType": "string",
+                    "value": "登录省系统失败，用户扫码多次登录失败，直接判定为无对应省账号",
+                    "display": "模版字符串",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d2586-00d1-11f1-a88a-aae8ee395a0c",
+                    "name": "logLevel",
+                    "valueType": "python",
+                    "value": "info",
+                    "display": "日志等级",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "INFO",
+                            "value": "info"
+                        },
+                        {
+                            "name": "WARNING",
+                            "value": "warning"
+                        },
+                        {
+                            "name": "ERROR",
+                            "value": "error"
+                        },
+                        {
+                            "name": "DEBUG",
+                            "value": "debug"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30c8d48-00d1-11f1-a464-aae8ee395a0c",
+                    "name": "replaceType",
+                    "valueType": "python",
+                    "value": "format",
+                    "display": "替换类型",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "format",
+                            "value": "format"
+                        },
+                        {
+                            "name": "format_map",
+                            "value": "format_map"
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30c432a-00d1-11f1-9bcb-aae8ee395a0c",
+                    "name": "params",
+                    "valueType": "python",
+                    "value": "",
+                    "display": "传参",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d7226-00d1-11f1-94a3-aae8ee395a0c",
+            "name": "设置任务数据状态",
+            "moduleid": "ba028cfe-8555-11eb-bd9d-d86b0360bae7",
+            "codeName": "TaskDataItem.setDataStatus",
+            "template": "设置任务数据字典：{{dataDict}}的状态：{{status}}",
+            "desc": "已存用户，没有对应省账号，不需要扫码",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30cb36d-00d1-11f1-9fd6-aae8ee395a0c",
+                    "name": "dataDict",
+                    "valueType": "python",
+                    "value": "任务数据字典",
+                    "display": "任务数据字典",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d7222-00d1-11f1-9fa7-aae8ee395a0c",
+                    "name": "status",
+                    "valueType": "python",
+                    "value": 3,
+                    "display": "状态",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "等待执行",
+                            "value": 1
+                        },
+                        {
+                            "name": "正在执行",
+                            "value": 2
+                        },
+                        {
+                            "name": "执行成功",
+                            "value": 3
+                        },
+                        {
+                            "name": "执行失败",
+                            "value": 4
+                        },
+                        {
+                            "name": "等待超时",
+                            "value": 5
+                        },
+                        {
+                            "name": "已删除",
+                            "value": 6
+                        },
+                        {
+                            "name": "重试执行",
+                            "value": 7
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30da3ab-00d1-11f1-a937-aae8ee395a0c",
+                    "name": "picture",
+                    "valueType": "python",
+                    "value": "\"\"",
+                    "display": "上传截图",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d2588-00d1-11f1-a397-aae8ee395a0c",
+                    "name": "backfill",
+                    "valueType": "python",
+                    "value": "str({\"Useraccount\":\"%s\"%用户账号,\"Scan\":\"False\",\"Reason\":\"用户5次以上没有扫码或者没有登录成功省系统，判定为无对应省账号\"})\n",
+                    "display": "回填结果",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d257d-00d1-11f1-a212-aae8ee395a0c",
+                    "name": "backup",
+                    "valueType": "string",
+                    "value": "不需要扫码噢",
+                    "display": "备注信息",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30da3a8-00d1-11f1-9fba-aae8ee395a0c",
+                    "name": "delayBefore",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行前延时",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d257e-00d1-11f1-ae2f-aae8ee395a0c",
+                    "name": "delayAfter",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行后延时",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30cd937-00d1-11f1-8aa3-aae8ee395a0c",
+                    "name": "timeout",
+                    "valueType": "python",
+                    "value": 30,
+                    "display": "超时时间",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d2596-00d1-11f1-96e0-aae8ee395a0c",
+                    "name": "continue_on_400",
+                    "valueType": "python",
+                    "value": false,
+                    "display": "通信出错是否继续",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "_id": "f30c674b-00d1-11f1-bf85-aae8ee395a0c",
+                    "name": "outPut",
+                    "valueType": "python",
+                    "value": "是否设置成功",
+                    "display": "输出到",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30cd939-00d1-11f1-b637-aae8ee395a0c",
+            "name": "变量赋值",
+            "moduleid": "b96c59fa-8555-11eb-8f6c-d86b0360bae7",
+            "codeName": "Control.vardefine",
+            "template": "变量名称{{newVar}} 赋值为 {{init}}",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30cff69-00d1-11f1-b2f4-aae8ee395a0c",
+                    "name": "newVar",
+                    "valueType": "python",
+                    "value": "省账号",
+                    "display": "变量名称",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d722c-00d1-11f1-a422-aae8ee395a0c",
+                    "name": "init",
+                    "valueType": "string",
+                    "value": "无对应省账号",
+                    "display": "变量值",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d7224-00d1-11f1-8be0-aae8ee395a0c",
+            "name": "变量赋值",
+            "moduleid": "b96c59fa-8555-11eb-8f6c-d86b0360bae7",
+            "codeName": "Control.vardefine",
+            "template": "变量名称{{newVar}} 赋值为 {{init}}",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30d259a-00d1-11f1-aca0-aae8ee395a0c",
+                    "name": "newVar",
+                    "valueType": "python",
+                    "value": "SESSION",
+                    "display": "变量名称",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30c8d44-00d1-11f1-83cb-aae8ee395a0c",
+                    "name": "init",
+                    "valueType": "python",
+                    "value": "",
+                    "display": "变量值",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d2579-00d1-11f1-b956-aae8ee395a0c",
+            "name": "变量赋值",
+            "moduleid": "b96c59fa-8555-11eb-8f6c-d86b0360bae7",
+            "codeName": "Control.vardefine",
+            "template": "变量名称{{newVar}} 赋值为 {{init}}",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30d4bf2-00d1-11f1-b064-aae8ee395a0c",
+                    "name": "newVar",
+                    "valueType": "python",
+                    "value": "openstack_cookie_insert",
+                    "display": "变量名称",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d4bd9-00d1-11f1-9781-aae8ee395a0c",
+                    "name": "init",
+                    "valueType": "python",
+                    "value": "",
+                    "display": "变量值",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30cff64-00d1-11f1-ab07-aae8ee395a0c",
+            "name": "变量赋值",
+            "moduleid": "b96c59fa-8555-11eb-8f6c-d86b0360bae7",
+            "codeName": "Control.vardefine",
+            "template": "变量名称{{newVar}} 赋值为 {{init}}",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30d721b-00d1-11f1-8bcb-aae8ee395a0c",
+                    "name": "newVar",
+                    "valueType": "python",
+                    "value": "扫码次数",
+                    "display": "变量名称",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d7225-00d1-11f1-aa30-aae8ee395a0c",
+                    "name": "init",
+                    "valueType": "python",
+                    "value": "result[0]['扫码次数']",
+                    "display": "变量值",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d2591-00d1-11f1-961f-aae8ee395a0c",
+            "name": "获取时间",
+            "moduleid": "b781376e-8555-11eb-861e-d86b0360bae7",
+            "codeName": "TimeFunction.getNowTime",
+            "template": "按照时间格式，获取时间",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30c8d4a-00d1-11f1-8a81-aae8ee395a0c",
+                    "name": "timeFormat",
+                    "valueType": "string",
+                    "value": "%Y-%m-%d %H:%M:%S",
+                    "display": "时间格式",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [
+                {
+                    "_id": "f30da3a5-00d1-11f1-ae92-aae8ee395a0c",
+                    "name": "outPut",
+                    "valueType": "python",
+                    "value": "更新时间",
+                    "display": "输出到",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30c8d46-00d1-11f1-8fb2-aae8ee395a0c",
+            "name": "执行SQL语句",
+            "moduleid": "ba15a0fe-8555-11eb-baf8-d86b0360bae7",
+            "codeName": "mysql.executeSQL",
+            "template": "执行{{sqlStr}}的SQL语句",
+            "desc": "更新cookie",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30d4be8-00d1-11f1-8796-aae8ee395a0c",
+                    "name": "conn",
+                    "valueType": "python",
+                    "value": "conn",
+                    "display": "数据库连接对象",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30c4328-00d1-11f1-bb6a-aae8ee395a0c",
+                    "name": "sqlStr",
+                    "valueType": "python",
+                    "value": "\"update 用户账号对应表 set 省账号='%s',更新时间='%s',扫码次数='%d' where 用户账号='%s' \"%(省账号,更新时间,扫码次数,用户账号)",
+                    "display": "执行的SQL语句",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [
+                {
+                    "_id": "f30d7246-00d1-11f1-9cb2-aae8ee395a0c",
+                    "name": "outPut",
+                    "valueType": "python",
+                    "value": "ret",
+                    "display": "输出到",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30cb365-00d1-11f1-a399-aae8ee395a0c",
+            "name": "else",
+            "moduleid": "",
+            "codeName": "",
+            "template": "",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [],
+            "outputs": [],
+            "customAttr": {},
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d7223-00d1-11f1-9afd-aae8ee395a0c",
+            "name": "endIf",
+            "moduleid": "",
+            "codeName": "",
+            "template": "",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [],
+            "outputs": [],
+            "customAttr": {},
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30c431e-00d1-11f1-8daf-aae8ee395a0c",
+            "name": "endIf",
+            "moduleid": "",
+            "codeName": "",
+            "template": "",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [],
+            "outputs": [],
+            "customAttr": {},
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d259d-00d1-11f1-b0f6-aae8ee395a0c",
+            "name": "endIf",
+            "moduleid": "",
+            "codeName": "",
+            "template": "",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [],
+            "outputs": [],
+            "customAttr": {},
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d723d-00d1-11f1-a867-aae8ee395a0c",
+            "name": "catch",
+            "moduleid": "",
+            "codeName": "",
+            "template": "",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [],
+            "outputs": [],
+            "customAttr": {},
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d258a-00d1-11f1-86ea-aae8ee395a0c",
+            "name": "设置任务数据状态",
+            "moduleid": "ba028cfe-8555-11eb-bd9d-d86b0360bae7",
+            "codeName": "TaskDataItem.setDataStatus",
+            "template": "设置任务数据字典：{{dataDict}}的状态：{{status}}",
+            "desc": "流程运行异常，返回异常，而不是二维码",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30cd93f-00d1-11f1-a51d-aae8ee395a0c",
+                    "name": "dataDict",
+                    "valueType": "python",
+                    "value": "任务数据字典",
+                    "display": "任务数据字典",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d2592-00d1-11f1-849f-aae8ee395a0c",
+                    "name": "status",
+                    "valueType": "python",
+                    "value": 3,
+                    "display": "状态",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "等待执行",
+                            "value": 1
+                        },
+                        {
+                            "name": "正在执行",
+                            "value": 2
+                        },
+                        {
+                            "name": "执行成功",
+                            "value": 3
+                        },
+                        {
+                            "name": "执行失败",
+                            "value": 4
+                        },
+                        {
+                            "name": "等待超时",
+                            "value": 5
+                        },
+                        {
+                            "name": "已删除",
+                            "value": 6
+                        },
+                        {
+                            "name": "重试执行",
+                            "value": 7
+                        }
+                    ]
+                },
+                {
+                    "_id": "f30d4bdf-00d1-11f1-b39b-aae8ee395a0c",
+                    "name": "picture",
+                    "valueType": "python",
+                    "value": "\"\"",
+                    "display": "上传截图",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30c432b-00d1-11f1-ace9-aae8ee395a0c",
+                    "name": "backfill",
+                    "valueType": "python",
+                    "value": "str({\"Useraccount\":\"%s\"%用户账号,\"Scan\":\"False\",\"Reason\":\"流程运行异常\"})",
+                    "display": "回填结果",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d258e-00d1-11f1-9e5a-aae8ee395a0c",
+                    "name": "backup",
+                    "valueType": "python",
+                    "value": "",
+                    "display": "备注信息",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30c674a-00d1-11f1-915b-aae8ee395a0c",
+                    "name": "delayBefore",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行前延时",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30cff70-00d1-11f1-894b-aae8ee395a0c",
+                    "name": "delayAfter",
+                    "valueType": "python",
+                    "value": 0,
+                    "display": "执行后延时",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30c8d4e-00d1-11f1-98cf-aae8ee395a0c",
+                    "name": "timeout",
+                    "valueType": "python",
+                    "value": 30,
+                    "display": "超时时间",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                },
+                {
+                    "_id": "f30d7234-00d1-11f1-8367-aae8ee395a0c",
+                    "name": "continue_on_400",
+                    "valueType": "python",
+                    "value": false,
+                    "display": "通信出错是否继续",
+                    "belong_paraID": null,
+                    "valueMapping": [
+                        {
+                            "name": "是",
+                            "value": true
+                        },
+                        {
+                            "name": "否",
+                            "value": false
+                        }
+                    ]
+                }
+            ],
+            "outputs": [
+                {
+                    "_id": "f30cd942-00d1-11f1-911b-aae8ee395a0c",
+                    "name": "outPut",
+                    "valueType": "python",
+                    "value": "是否设置成功",
+                    "display": "输出到",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30c6746-00d1-11f1-ac8f-aae8ee395a0c",
+            "name": "抛出异常",
+            "moduleid": "b8b4c31a-8555-11eb-bbe7-d86b0360bae7",
+            "codeName": "Controll.throws",
+            "template": "抛出异常：{{message}}",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30d258c-00d1-11f1-8752-aae8ee395a0c",
+                    "name": "message",
+                    "valueType": "python",
+                    "value": "error",
+                    "display": "异常信息",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30cff60-00d1-11f1-89c5-aae8ee395a0c",
+            "name": "finally",
+            "moduleid": "",
+            "codeName": "",
+            "template": "",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [],
+            "outputs": [],
+            "customAttr": {},
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30c4326-00d1-11f1-bde8-aae8ee395a0c",
+            "name": "关闭数据库连接",
+            "moduleid": "b92734b4-8555-11eb-a4d3-d86b0360bae7",
+            "codeName": "mysql.disconnectServer",
+            "template": "关闭数据库对象{{conn}}的连接",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "f30cff6e-00d1-11f1-aea7-aae8ee395a0c",
+                    "name": "conn",
+                    "valueType": "python",
+                    "value": "conn",
+                    "display": "数据库连接",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "outputs": [
+                {
+                    "_id": "f30cff68-00d1-11f1-9ea1-aae8ee395a0c",
+                    "name": "outPut",
+                    "valueType": "python",
+                    "value": "suc",
+                    "display": "输出到",
+                    "belong_paraID": null,
+                    "valueMapping": []
+                }
+            ],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true
+        },
+        {
+            "_id": "f30d258d-00d1-11f1-8be5-aae8ee395a0c",
+            "name": "endtry",
+            "moduleid": "",
+            "codeName": "",
+            "template": "",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [],
+            "outputs": [],
+            "customAttr": {},
+            "unfold": true,
+            "self_enable": true
+        }
+    ],
+    "unusedBlocks": [],
+    "parameters": [
+        {
+            "_id": "f30d2580-00d1-11f1-be1e-aae8ee395a0c",
+            "parameterName": "loglevel",
+            "defaultValue": "DEBUG",
+            "valueType": "string",
+            "type": 3,
+            "desc": "日志等级"
+        }
+    ],
+    "globalVarList": []
+}
