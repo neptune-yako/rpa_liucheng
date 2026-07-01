@@ -1,1 +1,6 @@
 *.zip
+/.trellis
+/.claude
+/.cursor
+/.agent
+AGENTS.md
