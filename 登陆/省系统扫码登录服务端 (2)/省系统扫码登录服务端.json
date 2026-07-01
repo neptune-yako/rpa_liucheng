@@ -6364,7 +6364,7 @@
                     "_id": "jnDALbQO",
                     "name": "_url",
                     "valueType": "string",
-                    "value": "http://19.15.0.100/zwml-admin/",
+                    "value": "https://19.25.42.21/zwml-admin/admin4/",
                     "display": "网址",
                     "belong_paraID": null,
                     "valueMapping": [],

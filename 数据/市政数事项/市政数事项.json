@@ -2896,7 +2896,7 @@
                     "_id": "O9xRWV7a",
                     "name": "_url",
                     "valueType": "string",
-                    "value": "http://19.15.0.100/zwml-admin/admin4/home/index",
+                    "value": "https://19.25.42.21/zwml-admin/admin4/home/index",
                     "display": "网址",
                     "belong_paraID": null,
                     "valueMapping": [],
