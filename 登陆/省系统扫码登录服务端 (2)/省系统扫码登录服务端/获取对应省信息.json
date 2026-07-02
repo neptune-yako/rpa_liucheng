@@ -915,7 +915,7 @@
                     "_id": "HzbOGvw2",
                     "name": "init",
                     "valueType": "python",
-                    "value": "字符串数组[1]",
+                    "value": "''",
                     "display": "变量值",
                     "belong_paraID": null,
                     "valueMapping": [],
