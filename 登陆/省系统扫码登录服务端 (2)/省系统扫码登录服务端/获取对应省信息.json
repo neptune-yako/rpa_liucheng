@@ -396,7 +396,7 @@
             "codeName": "String.split",
             "template": "以分隔符{{splitChar}}分割原始字符串{{srcStr}}",
             "desc": "",
-            "is_enable": true,
+            "is_enable": false,
             "inputs": [
                 {
                     "_id": "mZToSK8p",
@@ -435,7 +435,7 @@
                 "graphData": ""
             },
             "unfold": true,
-            "self_enable": true,
+            "self_enable": false,
             "error_info": [],
             "version": null,
             "is_params_error": false
@@ -447,7 +447,7 @@
             "codeName": "Control.print",
             "template": "打印{{template_string}}",
             "desc": "",
-            "is_enable": true,
+            "is_enable": false,
             "inputs": [
                 {
                     "_id": "CyaMmg4E",
@@ -542,7 +542,7 @@
                 "graphData": ""
             },
             "unfold": true,
-            "self_enable": true,
+            "self_enable": false,
             "error_info": [],
             "version": null,
             "is_params_error": false
@@ -554,7 +554,7 @@
             "codeName": "Control.print",
             "template": "打印{{template_string}}",
             "desc": "",
-            "is_enable": true,
+            "is_enable": false,
             "inputs": [
                 {
                     "_id": "gCbNtXFE",
@@ -649,7 +649,7 @@
                 "graphData": ""
             },
             "unfold": true,
-            "self_enable": true,
+            "self_enable": false,
             "error_info": [],
             "version": null,
             "is_params_error": false
@@ -661,13 +661,13 @@
             "codeName": "Control.print",
             "template": "打印{{template_string}}",
             "desc": "",
-            "is_enable": true,
+            "is_enable": false,
             "inputs": [
                 {
                     "_id": "HloHxILs",
                     "name": "template_string",
                     "valueType": "python",
-                    "value": "字符串数组[1]",
+                    "value": "字符串[0]",
                     "display": "模版字符串",
                     "belong_paraID": null,
                     "valueMapping": [],
@@ -756,7 +756,7 @@
                 "graphData": ""
             },
             "unfold": true,
-            "self_enable": true,
+            "self_enable": false,
             "error_info": [],
             "version": null,
             "is_params_error": false
@@ -768,7 +768,7 @@
             "codeName": "Control.vardefine",
             "template": "变量名称{{newVar}} 赋值为 {{init}}",
             "desc": "",
-            "is_enable": true,
+            "is_enable": false,
             "inputs": [
                 {
                     "_id": "PmSNZdmg",
@@ -796,7 +796,7 @@
                 "graphData": ""
             },
             "unfold": true,
-            "self_enable": true,
+            "self_enable": false,
             "error_info": [],
             "version": null,
             "is_params_error": false
@@ -808,7 +808,7 @@
             "codeName": "Control.vardefine",
             "template": "变量名称{{newVar}} 赋值为 {{init}}",
             "desc": "",
-            "is_enable": true,
+            "is_enable": false,
             "inputs": [
                 {
                     "_id": "TfA4hLYm",
@@ -824,7 +824,7 @@
                     "_id": "mOfsALwi",
                     "name": "init",
                     "valueType": "python",
-                    "value": "字符串数组[1]",
+                    "value": "''",
                     "display": "变量值",
                     "belong_paraID": null,
                     "valueMapping": [],
@@ -836,7 +836,7 @@
                 "graphData": ""
             },
             "unfold": true,
-            "self_enable": true,
+            "self_enable": false,
             "error_info": [],
             "version": null,
             "is_params_error": false
@@ -848,7 +848,7 @@
             "codeName": "String.split",
             "template": "以分隔符{{splitChar}}分割原始字符串{{srcStr}}",
             "desc": "",
-            "is_enable": true,
+            "is_enable": false,
             "inputs": [
                 {
                     "_id": "39nFXDQs",
@@ -887,7 +887,7 @@
                 "graphData": ""
             },
             "unfold": true,
-            "self_enable": true,
+            "self_enable": false,
             "error_info": [],
             "version": null,
             "is_params_error": false
@@ -939,7 +939,7 @@
             "codeName": "String.split",
             "template": "以分隔符{{splitChar}}分割原始字符串{{srcStr}}",
             "desc": "",
-            "is_enable": true,
+            "is_enable": false,
             "inputs": [
                 {
                     "_id": "J5oBHejI",
@@ -978,7 +978,7 @@
                 "graphData": ""
             },
             "unfold": true,
-            "self_enable": true,
+            "self_enable": false,
             "error_info": [],
             "version": null,
             "is_params_error": false
@@ -1006,7 +1006,7 @@
                     "_id": "NKvA9eLL",
                     "name": "init",
                     "valueType": "python",
-                    "value": "字符串数组[1]",
+                    "value": "next((item.split('=', 1)[1].strip() for item in cookies字符串.split(';') if item.strip().startswith('SESSION=')), '')",
                     "display": "变量值",
                     "belong_paraID": null,
                     "valueMapping": [],
