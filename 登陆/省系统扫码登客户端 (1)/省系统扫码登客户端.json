@@ -443,7 +443,7 @@
                     "_id": "f30cff71-00d1-11f1-acff-aae8ee395a0c",
                     "name": "sqlStr",
                     "valueType": "python",
-                    "value": "\"select SESSION,openstack_cookie_insert,省账号,扫码次数,失效时间 from 用户账号对应表 where 用户账号='%s' \"%用户账号",
+                    "value": "\"select SESSION,省账号,扫码次数,失效时间 from 用户账号对应表 where 用户账号='%s' \"%用户账号",
                     "display": "执行的SQL语句",
                     "belong_paraID": null,
                     "valueMapping": []
@@ -3108,41 +3108,6 @@
                 },
                 {
                     "_id": "f30c8d44-00d1-11f1-83cb-aae8ee395a0c",
-                    "name": "init",
-                    "valueType": "python",
-                    "value": "",
-                    "display": "变量值",
-                    "belong_paraID": null,
-                    "valueMapping": []
-                }
-            ],
-            "outputs": [],
-            "customAttr": {
-                "graphData": ""
-            },
-            "unfold": true,
-            "self_enable": true
-        },
-        {
-            "_id": "f30d2579-00d1-11f1-b956-aae8ee395a0c",
-            "name": "变量赋值",
-            "moduleid": "b96c59fa-8555-11eb-8f6c-d86b0360bae7",
-            "codeName": "Control.vardefine",
-            "template": "变量名称{{newVar}} 赋值为 {{init}}",
-            "desc": "",
-            "is_enable": true,
-            "inputs": [
-                {
-                    "_id": "f30d4bf2-00d1-11f1-b064-aae8ee395a0c",
-                    "name": "newVar",
-                    "valueType": "python",
-                    "value": "openstack_cookie_insert",
-                    "display": "变量名称",
-                    "belong_paraID": null,
-                    "valueMapping": []
-                },
-                {
-                    "_id": "f30d4bd9-00d1-11f1-9781-aae8ee395a0c",
                     "name": "init",
                     "valueType": "python",
                     "value": "",
