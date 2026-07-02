@@ -637,7 +637,7 @@
                     "_id": "p9iiq0VH",
                     "name": "sqlStr",
                     "valueType": "python",
-                    "value": "\"select SESSION,省账号,扫码次数,失效时间 from 用户账号对应表 where 用户账号='%s' \"%用户账号",
+                    "value": "\"select SESSION,openstack_cookie_insert,省账号,扫码次数,失效时间 from 用户账号对应表 where 用户账号='%s' \"%用户账号",
                     "display": "执行的SQL语句",
                     "belong_paraID": null,
                     "valueMapping": [],
@@ -1629,6 +1629,16 @@
                     "required": 0
                 },
                 {
+                    "_id": "IXgfMogT",
+                    "name": "openstack_cookie_insert",
+                    "valueType": "python",
+                    "value": "openstack_cookie_insert",
+                    "display": "openstack_cookie_insert",
+                    "belong_paraID": "IXgfMogT",
+                    "valueMapping": [],
+                    "required": 0
+                },
+                {
                     "_id": "cyvL18gY",
                     "name": "更新时间",
                     "valueType": "python",
@@ -1933,6 +1943,46 @@
             "is_params_error": false
         },
         {
+            "_id": "qih5eSCG",
+            "name": "变量赋值",
+            "moduleid": "b96c59fa-8555-11eb-8f6c-d86b0360bae7",
+            "codeName": "Control.vardefine",
+            "template": "变量名称{{newVar}} 赋值为 {{init}}",
+            "desc": "",
+            "is_enable": true,
+            "inputs": [
+                {
+                    "_id": "ZW550BFi",
+                    "name": "newVar",
+                    "valueType": "python",
+                    "value": "openstack_cookie_insert",
+                    "display": "变量名称",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                },
+                {
+                    "_id": "AQKe5q5h",
+                    "name": "init",
+                    "valueType": "string",
+                    "value": "",
+                    "display": "变量值",
+                    "belong_paraID": null,
+                    "valueMapping": [],
+                    "required": 1
+                }
+            ],
+            "outputs": [],
+            "customAttr": {
+                "graphData": ""
+            },
+            "unfold": true,
+            "self_enable": true,
+            "error_info": [],
+            "version": null,
+            "is_params_error": false
+        },
+        {
             "_id": "L766wzD8",
             "name": "变量赋值",
             "moduleid": "b96c59fa-8555-11eb-8f6c-d86b0360bae7",
@@ -2083,7 +2133,7 @@
                     "_id": "csJBxHz6",
                     "name": "template_string",
                     "valueType": "python",
-                    "value": "\"insert into `用户账号对应表`(`用户账号`,`省账号`,`SESSION`,`更新时间`,`扫码次数`,`组织机构`) values('%s','%s','%s','%s','%d','%s')\"%(用户账号,省账号,SESSION,更新时间,扫码次数,组织机构) +\"ON DUPLICATE KEY UPDATE SESSION = VALUES(SESSION),更新时间= VALUES(更新时间)\"",
+                    "value": "\"insert into `用户账号对应表`(`用户账号`,`省账号`,`SESSION`,`openstack_cookie_insert`,`更新时间`,`扫码次数`,`组织机构`) values('%s','%s','%s','%s','%s','%d','%s')\"%(用户账号,省账号,SESSION,openstack_cookie_insert,更新时间,扫码次数,组织机构) +\"ON DUPLICATE KEY UPDATE SESSION = VALUES(SESSION),openstack_cookie_insert = VALUES(openstack_cookie_insert),更新时间= VALUES(更新时间)\"",
                     "display": "打印内容",
                     "belong_paraID": null,
                     "valueMapping": [],
@@ -2200,7 +2250,7 @@
                     "_id": "7xwN8qLC",
                     "name": "sqlStr",
                     "valueType": "python",
-                    "value": "\"insert into `用户账号对应表`(`用户账号`,`省账号`,`SESSION`,`更新时间`,`扫码次数`,`组织机构`) values('%s','%s','%s','%s','%d','%s')\"%(用户账号,省账号,SESSION,更新时间,扫码次数,组织机构) +\"ON DUPLICATE KEY UPDATE SESSION = VALUES(SESSION),更新时间= VALUES(更新时间)\"",
+                    "value": "\"insert into `用户账号对应表`(`用户账号`,`省账号`,`SESSION`,`openstack_cookie_insert`,`更新时间`,`扫码次数`,`组织机构`) values('%s','%s','%s','%s','%s','%d','%s')\"%(用户账号,省账号,SESSION,openstack_cookie_insert,更新时间,扫码次数,组织机构) +\"ON DUPLICATE KEY UPDATE SESSION = VALUES(SESSION),openstack_cookie_insert = VALUES(openstack_cookie_insert),更新时间= VALUES(更新时间)\"",
                     "display": "执行的SQL语句",
                     "belong_paraID": null,
                     "valueMapping": [],
@@ -2992,6 +3042,16 @@
                     "required": 0
                 },
                 {
+                    "_id": "IXgfMogT",
+                    "name": "openstack_cookie_insert",
+                    "valueType": "python",
+                    "value": "openstack_cookie_insert",
+                    "display": "openstack_cookie_insert",
+                    "belong_paraID": "IXgfMogT",
+                    "valueMapping": [],
+                    "required": 0
+                },
+                {
                     "_id": "cyvL18gY",
                     "name": "更新时间",
                     "valueType": "python",
@@ -3532,7 +3592,7 @@
                     "_id": "Co1RPuny",
                     "name": "template_string",
                     "valueType": "python",
-                    "value": "\"update 用户账号对应表 set 失效时间=null,省账号='%s',SESSION='%s',更新时间='%s',扫码次数='%d',组织机构='%s' where 用户账号='%s' \"%(省账号,SESSION,更新时间,扫码次数,组织机构,用户账号)",
+                    "value": "\"update 用户账号对应表 set 失效时间=null,省账号='%s',SESSION='%s',openstack_cookie_insert='%s',更新时间='%s',扫码次数='%d',组织机构='%s' where 用户账号='%s' \"%(省账号,SESSION,openstack_cookie_insert,更新时间,扫码次数,组织机构,用户账号)",
                     "display": "打印内容",
                     "belong_paraID": null,
                     "valueMapping": [],
@@ -3649,7 +3709,7 @@
                     "_id": "SAqkx4os",
                     "name": "sqlStr",
                     "valueType": "python",
-                    "value": "\"update 用户账号对应表 set 失效时间=null,省账号='%s',SESSION='%s',更新时间='%s',扫码次数='%d',组织机构='%s' where 用户账号='%s' \"%(省账号,SESSION,更新时间,扫码次数,组织机构,用户账号)",
+                    "value": "\"update 用户账号对应表 set 失效时间=null,省账号='%s',SESSION='%s',openstack_cookie_insert='%s',更新时间='%s',扫码次数='%d',组织机构='%s' where 用户账号='%s' \"%(省账号,SESSION,openstack_cookie_insert,更新时间,扫码次数,组织机构,用户账号)",
                     "display": "执行的SQL语句",
                     "belong_paraID": null,
                     "valueMapping": [],
@@ -5340,6 +5400,16 @@
                     "required": 0
                 },
                 {
+                    "_id": "IXgfMogT",
+                    "name": "openstack_cookie_insert",
+                    "valueType": "python",
+                    "value": "openstack_cookie_insert",
+                    "display": "openstack_cookie_insert",
+                    "belong_paraID": "IXgfMogT",
+                    "valueMapping": [],
+                    "required": 0
+                },
+                {
                     "_id": "cyvL18gY",
                     "name": "更新时间",
                     "valueType": "python",
@@ -5412,7 +5482,7 @@
                     "_id": "0Uc81F5C",
                     "name": "template_string",
                     "valueType": "python",
-                    "value": "\"update 用户账号对应表 set 失效时间='%s',省账号='%s',SESSION='%s',更新时间='%s',扫码次数='%d',组织机构='%s' where 用户账号='%s' \"%(失效时间,省账号,SESSION,更新时间,扫码次数,组织机构,用户账号)",
+                    "value": "\"update 用户账号对应表 set 失效时间='%s',省账号='%s',SESSION='%s',openstack_cookie_insert='%s',更新时间='%s',扫码次数='%d',组织机构='%s' where 用户账号='%s' \"%(失效时间,省账号,SESSION,openstack_cookie_insert,更新时间,扫码次数,组织机构,用户账号)",
                     "display": "打印内容",
                     "belong_paraID": null,
                     "valueMapping": [],
@@ -5529,7 +5599,7 @@
                     "_id": "dstOvFi0",
                     "name": "sqlStr",
                     "valueType": "python",
-                    "value": "\"update 用户账号对应表 set 失效时间='%s',省账号='%s',SESSION='%s',更新时间='%s',扫码次数='%d',组织机构='%s' where 用户账号='%s' \"%(失效时间,省账号,SESSION,更新时间,扫码次数,组织机构,用户账号)",
+                    "value": "\"update 用户账号对应表 set 失效时间='%s',省账号='%s',SESSION='%s',openstack_cookie_insert='%s',更新时间='%s',扫码次数='%d',组织机构='%s' where 用户账号='%s' \"%(失效时间,省账号,SESSION,openstack_cookie_insert,更新时间,扫码次数,组织机构,用户账号)",
                     "display": "执行的SQL语句",
                     "belong_paraID": null,
                     "valueMapping": [],
